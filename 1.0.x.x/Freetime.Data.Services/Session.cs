@@ -45,7 +45,7 @@ namespace Freetime.Data.Services
 
         public override int GetHashCode()
         {
-            return (Contract != null && Contract.FullName != null) ? Contract.FullName.GetHashCode()
+            return (Service != null && Service.FullName != null) ? Service.FullName.GetHashCode()
                 : 0;
         }
     }

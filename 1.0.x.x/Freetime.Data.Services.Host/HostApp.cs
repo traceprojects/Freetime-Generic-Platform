@@ -69,6 +69,7 @@ namespace Freetime.Data.Services.Host
 
         private void SetupGrid()
         {
+            colName.Visible = false;
             colName.DisplayIndex = 0;
             colService.DisplayIndex = 1;
             colContract.DisplayIndex = 2;

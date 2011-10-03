@@ -5,6 +5,6 @@ namespace Freetime.Data.Services
 {
     public abstract class EndpointHandle
     {
-        public abstract void AssignEndpointToHost(ServiceHost host, Type contractType);
+        public abstract void AssignEndpointToHost(ServiceHost host, Type contractType, string uniqueName);
     }
 }

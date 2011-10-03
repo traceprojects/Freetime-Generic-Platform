@@ -14,12 +14,12 @@ namespace Freetime.Data.Services.Handles
             SecurityMode = BasicHttpSecurityMode.None;
         }
 
-        public override void AssignEndpointToHost(ServiceHost host, Type contractType)
+        public override void AssignEndpointToHost(ServiceHost host, Type contractType, string uniquename)
         {
             var binding = new BasicHttpBinding(SecurityMode);
             var fixedAddress = Address.EndsWith("/") ? Address : string.Format("{0}/",Address);
-            
-            host.AddServiceEndpoint(contractType, binding, string.Format("{0}{1}", fixedAddress, contractType.Name));
+
+            host.AddServiceEndpoint(contractType, binding, string.Format("{0}{1}", fixedAddress, uniquename));
         }
     }
 }
