@@ -91,6 +91,8 @@
   <ItemGroup>
     <Compile Include="AuthenticationSession.cs" />
     <Compile Include="Collection\BusinessLogicList.cs" />
+    <Compile Include="Collection\Common\DictionaryList.cs" />
+    <Compile Include="Collection\ConfigurationItemCollection.cs" />
     <Compile Include="Collection\DataSessionServiceList.cs" />
     <Compile Include="Contracts\IAuthenticationSession.cs" />
     <Compile Include="Contracts\ILocalizationSession.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Collection\WebThemeList.cs" />
     <Compile Include="Collection\WebViewList.cs" />
     <Compile Include="DataSession.cs" />
+    <Compile Include="Entities\ConfigurationItem.cs" />
     <Compile Include="Entities\DataSessionService.cs" />
     <Compile Include="Entities\EventHandler.cs" />
     <Compile Include="Entities\Language.cs" />
