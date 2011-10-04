@@ -13,6 +13,14 @@ namespace Freetime.Base.Data.Entities
     public class UserAccount : AuditableEntity
     {
         [DataMember]
+        [XmlElement("ID")]
+        public Int64 ID
+        {
+            get;
+            protected set;
+        }
+
+        [DataMember]
         [XmlElement("LoginName")]
         public virtual string LoginName { get; set; }
 

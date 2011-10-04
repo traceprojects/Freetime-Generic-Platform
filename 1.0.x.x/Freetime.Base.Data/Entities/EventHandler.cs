@@ -13,6 +13,14 @@ namespace Freetime.Base.Data.Entities
     public class EventHandler : AuditableEntity
     {
         [DataMember]
+        [XmlElement("ID")]
+        public Int64 ID
+        {
+            get;
+            protected set;
+        }
+
+        [DataMember]
         [XmlElement("UniqueId")]
         public string UniqueId { get; set; }
 

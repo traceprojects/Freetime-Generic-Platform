@@ -11,7 +11,14 @@ namespace Freetime.Base.Data.Entities
         Namespace = "http://www.freetime-generic.com",
         IsNullable = true)]
     public class UserGroup : AuditableEntity
-    {      
+    {
+        [DataMember]
+        [XmlElement("ID")]
+        public Int64 ID
+        {
+            get;
+            protected set;
+        }
 
         [DataMember]
         [XmlElement("Name")]

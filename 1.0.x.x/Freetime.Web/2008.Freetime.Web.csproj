@@ -36,88 +36,97 @@
     <Reference Include="Anito.Data, Version=1.0.1.7, Culture=neutral, PublicKeyToken=967ed64547aa0488, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Anito.Data.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Anito.Data.SqlClient, Version=1.0.1.7, Culture=neutral, PublicKeyToken=967ed64547aa0488, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Anito.Data.SqlClient.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Freetime.Authentication, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Debug\Freetime.Authentication.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Freetime.Base.Framework, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Debug\Freetime.Base.Framework.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Freetime.Configuration, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Debug\Freetime.Configuration.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Freetime.GlobalHandling, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Debug\Freetime.GlobalHandling.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Freetime.Web.Context, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Debug\Freetime.Web.Context.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Freetime.Web.Routing, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Debug\Freetime.Web.Routing.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Freetime.Web.View, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Debug\Freetime.Web.View.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Data">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\System.Web.Mvc.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Drawing">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Abstractions">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Routing">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Configuration">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Services">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Mobile">
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -235,17 +244,21 @@
     <ProjectReference Include="..\Freetime.Base.Business\Freetime.Base.Business.csproj">
       <Project>{CF7EC13B-E324-455A-9A91-71CFCBEBD6C1}</Project>
       <Name>Freetime.Base.Business</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Freetime.Base.Data\Freetime.Base.Data.csproj">
       <Project>{1646344E-9015-4204-AF7B-0DF1D42B3E24}</Project>
       <Name>Freetime.Base.Data</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\Freetime.Web.Controller\Freetime.Web.Controller.csproj">
       <Project>{B4821622-B647-4997-9EC0-D4E0BC77F5F4}</Project>
       <Name>Freetime.Web.Controller</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Freetime.Base.Component.dll" />
     <Content Include="Config\BusinessLogics.config" />
   </ItemGroup>
   <ItemGroup>

@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationConfigurationSession.cs" />
     <Compile Include="AuthenticationSession.cs" />
     <Compile Include="Collection\BusinessLogicList.cs" />
     <Compile Include="Collection\Common\DictionaryList.cs" />

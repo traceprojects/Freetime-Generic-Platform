@@ -12,6 +12,13 @@ namespace Freetime.Base.Data.Entities
         IsNullable = true)]
     public class Language : AuditableEntity
     {
+        [DataMember]
+        [XmlElement("ID")]
+        public Int64 ID
+        {
+            get;
+            protected set;
+        }
        
         [DataMember]
         [XmlElement("LanguageCode")]
