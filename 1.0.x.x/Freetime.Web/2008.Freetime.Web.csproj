@@ -259,6 +259,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Freetime.Base.Component.dll" />
+    <Content Include="bin\Freetime.Base.Component.pdb" />
     <Content Include="Config\BusinessLogics.config" />
   </ItemGroup>
   <ItemGroup>

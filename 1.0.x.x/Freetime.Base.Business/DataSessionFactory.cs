@@ -48,59 +48,16 @@ namespace Freetime.Base.Business
             if(sessionType == null)
                 throw new Exception(string.Format("Unknown type: {0}, {1}", blogic.DataSessionType, blogic.DataSessionAssembly));
 
-            var sessionInstance = CreateContractInstance<TContract>(sessionType);
+            var typeInstance = Freetime.Base.Framework.Activator.CreateInstance(sessionType);
+
+            if(!typeof(TContract).IsAssignableFrom(typeInstance.GetType()))
+                return defaultContract;
+
+            var sessionInstance = (TContract) typeInstance;
 
             return (Equals(sessionInstance, null)) 
                 ? defaultContract 
                 : sessionInstance;
         }
-
-        #region Dynamic Type Creation - Modify at your Own Risk    
-        private static TContract CreateContractInstance<TContract>(Type contractType)
-        {
-            if(contractType == null)
-                throw new ArgumentNullException("contractType");
-
-            if(!ContractDelegateCache.ContainsKey(contractType))
-            {
-                
-                var dm = new DynamicMethod("CreateInstance", contractType, Type.EmptyTypes);//, contractType);
-
-                var il = dm.GetILGenerator();
-                
-                il.DeclareLocal(contractType);
-                
-                var constructor = contractType.GetConstructor(Type.EmptyTypes);
-                if(Equals(constructor, null))
-                    throw new Exception(string.Format("Unable to create instance of type {0}", contractType.FullName));
-
-                il.Emit(OpCodes.Newobj, constructor);
-                il.Emit(OpCodes.Stloc_0);
-                il.Emit(OpCodes.Ldloc_0);
-                il.Emit(OpCodes.Ret);
-                ContractDelegateCache.Add(contractType, dm.CreateDelegate(typeof(CreateContractInstanceDelegate)));
-            }
-            
-            var method = ContractDelegateCache[contractType] as CreateContractInstanceDelegate;
-            if(method == null)
-                throw new Exception(string.Format("Unable to create instance of type {0}", contractType.FullName));
-
-            var contract = (TContract) method();
-            if(Equals(contract, null))
-                throw  new Exception(string.Format("Unable to create instance of type {0}", contractType.FullName));
-            return contract;
-        }
-
-        private delegate object CreateContractInstanceDelegate();
-
-        private static Dictionary<Type, Delegate> s_cachedContractDelegates;
-
-        private static Dictionary<Type, Delegate> ContractDelegateCache
-        {
-            get { return s_cachedContractDelegates = s_cachedContractDelegates ?? new Dictionary<Type, Delegate>(); }
-
-        }
-
-        #endregion
     }
 }

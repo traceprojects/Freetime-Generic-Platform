@@ -80,6 +80,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activator.cs" />
     <Compile Include="Crypto.cs" />
     <Compile Include="Diagnostics\DebugUtil.cs" />
     <Compile Include="Diagnostics\TraceUtil.cs" />
