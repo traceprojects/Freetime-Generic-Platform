@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationConfigurationLogic.cs" />
     <Compile Include="AuthenticationLogic.cs" />
     <Compile Include="BaseLogic.cs" />
     <Compile Include="DataSessionBuilder.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Events\Global\GlobalEventConstants.cs" />
     <Compile Include="Events\Global\UserAuthenticationEventArgs.cs" />
     <Compile Include="IDataSessionFactory.cs" />
+    <Compile Include="Implementable\IApplicationConfigurationLogic.cs" />
     <Compile Include="Implementable\IAuthenticationLogic.cs" />
     <Compile Include="Implementable\ILocalizationLogic.cs" />
     <Compile Include="Implementable\ILogic.cs" />

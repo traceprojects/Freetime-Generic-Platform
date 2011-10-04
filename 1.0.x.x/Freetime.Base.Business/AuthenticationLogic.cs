@@ -59,7 +59,6 @@ namespace Freetime.Base.Business
             string password,
             string ipAddress)
         {
-
             var account = CurrentSession.GetUserAccount(loginName);
             UserAuthenticationEventArgs args;
 

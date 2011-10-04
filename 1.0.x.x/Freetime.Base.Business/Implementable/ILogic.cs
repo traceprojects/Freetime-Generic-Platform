@@ -12,11 +12,6 @@ namespace Freetime.Base.Business.Implementable
 {
     public interface ILogic 
     {
-        //DataSession DataSession
-        //{
-        //    get;
-        //}
-
         FreetimeUser CurrentUser
         {
             get;

@@ -128,10 +128,22 @@ namespace Freetime.Base.Data.Collection.Common
             return Enumerate().GetEnumerator();
         }
 
-
         public void CopyTo(TType[] container, int count)
         {
+            if (container == null)
+                throw new ArgumentNullException("container");
 
+            if (count < 0 || count > Count)
+                throw new ArgumentOutOfRangeException();
+
+            if (container.Length < count)
+                throw new ArgumentException();
+
+            for (int idx = 0; idx < count; idx++)
+            {
+                var key = KeyList[idx];
+                container[idx] = Container[key];
+            }
         }
 
         public int Count

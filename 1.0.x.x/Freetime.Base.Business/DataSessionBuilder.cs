@@ -8,7 +8,7 @@ namespace Freetime.Base.Business
     {
         private static DataSessionBuilder s_dataSessionBuilder;
         
-        public static DataSessionBuilder Current
+        private static DataSessionBuilder Current
         {
             get
             {
