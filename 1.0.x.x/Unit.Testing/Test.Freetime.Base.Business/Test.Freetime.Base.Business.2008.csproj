@@ -36,6 +36,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Debug\Freetime.Authentication.dll</HintPath>
     </Reference>
+    <Reference Include="Freetime.Base.Data, Version=1.0.1.1, Culture=neutral, PublicKeyToken=b86d1ba90a0e7353, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Debug\Freetime.Base.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Freetime.Configuration, Version=1.0.1.1, Culture=neutral, PublicKeyToken=b86d1ba90a0e7353, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\bin\Debug\Freetime.Configuration.dll</HintPath>
@@ -69,10 +73,6 @@
     <ProjectReference Include="..\..\Freetime.Base.Business\Freetime.Base.Business.csproj">
       <Project>{CF7EC13B-E324-455A-9A91-71CFCBEBD6C1}</Project>
       <Name>Freetime.Base.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Freetime.Base.Data\Freetime.Base.Data.csproj">
-      <Project>{1646344E-9015-4204-AF7B-0DF1D42B3E24}</Project>
-      <Name>Freetime.Base.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
