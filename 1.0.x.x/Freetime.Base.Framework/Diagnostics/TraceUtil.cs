@@ -111,5 +111,12 @@ namespace Freetime.Base.Framework.Diagnostics
         }
 
         #endregion
+
+        #region AddListener
+        public static void AddListener(TraceListener listener)
+        {
+            Trace.Listeners.Add(listener);
+        }
+        #endregion
     }
 }

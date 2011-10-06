@@ -6,5 +6,7 @@ namespace Freetime.Base.Business
     public interface IDataSessionFactory
     {
         TContract GetDataSession<TContract>(ILogic logic, TContract defaultContract) where TContract : IDataSession;
+
+        void AddAttribute(string key, string value);
     }
 }

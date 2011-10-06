@@ -15,27 +15,6 @@ namespace Freetime.Base.Business
             UseDefaultDataSession = true;
         }
 
-        #region Commented - do not remove
-        //TContract IDataSessionFactory.GetDataSession<TContract>() 
-        //{
-        //    var httpFactory =
-        //        new ChannelFactory<TContract>(
-        //          new BasicHttpBinding(),
-        //          new EndpointAddress(
-        //            string.Format("http://192.168.175.123:8000/FreetimeDataServices/{0}", typeof(TContract).Name)));
-        //    var contract = httpFactory.CreateChannel();
-        //    return contract;
-        //}
-        
-        //TContract IDataSessionFactory.GetDataSession<TContract>(TContract defaultContract) 
-        //{
-        //    if (UseDefaultDataSession) return defaultContract;
-
-        //    var contract = (this as IDataSessionFactory).GetDataSession<TContract>();
-        //    return Equals(contract, null) ? defaultContract : contract;
-        //}
-        #endregion
-
         TContract IDataSessionFactory.GetDataSession<TContract>(ILogic logic, TContract defaultContract)
         {
             var blogic = PluginManagement.PluginManager.Current.GetBusinessLogic(logic.GetType().FullName);
@@ -58,6 +37,11 @@ namespace Freetime.Base.Business
             return (Equals(sessionInstance, null)) 
                 ? defaultContract 
                 : sessionInstance;
+        }
+
+        void IDataSessionFactory.AddAttribute(string key, string value)
+        {
+
         }
     }
 }

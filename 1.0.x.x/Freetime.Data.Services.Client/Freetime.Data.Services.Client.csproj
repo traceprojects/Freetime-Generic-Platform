@@ -38,8 +38,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Freetime.Base.Data, Version=1.0.1.1, Culture=neutral, PublicKeyToken=b86d1ba90a0e7353, processorArchitecture=MSIL" />
+    <Reference Include="Freetime.PluginManagement, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b86d1ba90a0e7353, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />

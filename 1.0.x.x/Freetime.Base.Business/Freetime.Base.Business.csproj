@@ -97,6 +97,9 @@
     <Compile Include="ApplicationConfigurationLogic.cs" />
     <Compile Include="AuthenticationLogic.cs" />
     <Compile Include="BaseLogic.cs" />
+    <Compile Include="Configuration\DataSessionBuilderConfiguration.cs" />
+    <Compile Include="Configuration\DataSessionBuilderConfigurationAttribute.cs" />
+    <Compile Include="Configuration\DataSessionBuilderConfigurationAttributeCollection.cs" />
     <Compile Include="DataSessionBuilder.cs" />
     <Compile Include="DataSessionFactory.cs" />
     <Compile Include="Events\Global\GlobalEventConstants.cs" />

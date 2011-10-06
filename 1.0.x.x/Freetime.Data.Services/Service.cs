@@ -61,7 +61,7 @@ namespace Freetime.Data.Services
                 var host = new ServiceHost(serviceType);
 
                 foreach (EndpointHandle handle in EndpointHandles)
-                    handle.AssignEndpointToHost(host, contractType, serviceType.FullName);
+                    handle.AssignEndpointToHost(host, contractType, service.Name);//serviceType.FullName);
                 
                 var session = new Session(host, contractType, serviceType);
 

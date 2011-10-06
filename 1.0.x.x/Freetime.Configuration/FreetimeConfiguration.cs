@@ -59,17 +59,29 @@ namespace Freetime.Configuration
             }
         }
 
-        [ConfigurationProperty("UsingDataSerivce", IsRequired = false)]
-        public bool UsingDataService
+        [ConfigurationProperty("DataSessionBuilderConfigurationSection", IsRequired = false)]
+        public string DataSessionBuilderConfigurationSection
         {
             get
             {
-                this["UsingDataService"] = this["UsingDataService"] ?? false;
-                return (bool) this["UsingDataService"];
+                return (string)this["DataSessionBuilderConfigurationSection"];
             }
             set
             {
-                this["UsingDataService"] = value;
+                this["DataSessionBuilderConfigurationSection"] = value;
+            }
+        }
+
+        [ConfigurationProperty("LogFilesLocation", IsRequired = true)]
+        public string LogFilesLocation
+        {
+            get
+            {
+                return (string)this["LogFilesLocation"];
+            }
+            set 
+            {
+                this["LogFilesLocation"] = value;
             }
         }
     }

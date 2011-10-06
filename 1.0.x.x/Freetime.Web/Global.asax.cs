@@ -7,6 +7,9 @@ using System.Configuration;
 using System.Web.Routing;
 using Freetime.GlobalHandling;
 using Freetime.Base.Business;
+using Freetime.Base.Framework.Diagnostics;
+using Freetime.Base.Component.Diagnostics;
+using Freetime.Web.Controller;
 
 namespace Freetime.Web
 {
@@ -29,8 +32,6 @@ namespace Freetime.Web
                 "{controller}/{action}/{id}",
                 new { controller = "Root", action = "Index", id = "" }
             );
-
-            
         }
 
         protected virtual void Application_Start()
@@ -48,14 +49,16 @@ namespace Freetime.Web
             //Load event handlers from an xml file
             //PluginLogic.PluginManager.LoadEventHandlers(@"C:\Documents and Settings\Administrator\Desktop\freetime\1.0.1.x\Freetime.Web\Config\Events.config");
 
-            
-            //Load Controllers from an xml file
-            //Freetime.PluginManagement.PluginManager.Current.
-            //PluginLogic.PluginManager.LoadWebControllers(@"C:\Documents and Settings\Administrator\Desktop\freetime\1.0.1.x\Freetime.Web\Config\Controllers.config");
-
             //Set Controller Factory
-            Freetime.Web.Controller.ControllerFactory factory = new Freetime.Web.Controller.ControllerFactory();
+            ControllerFactory factory = new Freetime.Web.Controller.ControllerFactory();
             ControllerBuilder.Current.SetControllerFactory(factory);
+
+            //Set DataSessionFactory
+            //Freetime.Data.Services.Client.DataSessionFactory dataSessionFactory = new Freetime.Data.Services.Client.DataSessionFactory();
+
+            //Add Trace Listener
+            LogWriterTraceListener listener = new Freetime.Base.Component.Diagnostics.LogWriterTraceListener();
+            TraceUtil.AddListener(listener);            
         }
     }
 }

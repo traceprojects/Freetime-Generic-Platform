@@ -41,8 +41,7 @@ namespace Freetime.PluginManagement
             {
                 var config = System.Configuration.ConfigurationManager.GetSection(configSection);
                 if (config == null)
-                {
-                    //TODO throw proper exception
+                {                    
                     throw new Exception("PluginManagementConfiguration Not Implemented");
                 }
                 Configuration = config as PluginManagerConfiguration;
@@ -111,6 +110,8 @@ namespace Freetime.PluginManagement
 
         public void LoadWebControllers(string xmlsource)
         {
+            if (!File.Exists(xmlsource))
+                throw new FileNotFoundException(xmlsource);
             m_controllerList = GetWebControllers(xmlsource);
         }
 
@@ -142,6 +143,8 @@ namespace Freetime.PluginManagement
 
         private void LoadWebViews(string sourceXml)
         {
+            if (!File.Exists(sourceXml))
+                throw new FileNotFoundException(sourceXml);
             m_viewList = GetWebViewList(sourceXml);
         }
 
@@ -173,6 +176,8 @@ namespace Freetime.PluginManagement
 
         private void LoadWebPartialViews(string sourceXml)
         {
+            if (!File.Exists(sourceXml))
+                throw new FileNotFoundException(sourceXml);
             m_partialViewList = GetWebPartialViewList(sourceXml);
         }
 
@@ -204,6 +209,8 @@ namespace Freetime.PluginManagement
 
         private void LoadWebMasterPages(string sourceXml)
         {
+            if (!File.Exists(sourceXml))
+                throw new FileNotFoundException(sourceXml);
             m_masterPageList = GetMasterPageList(sourceXml);
         }
 
@@ -243,6 +250,8 @@ namespace Freetime.PluginManagement
 
         private void LoadBusinessLogics(string sourceXml)
         {
+            if (!File.Exists(sourceXml))
+                throw new FileNotFoundException(sourceXml);
             m_businessLogicList = GetBusinessLogicList(sourceXml);
         }
 
@@ -269,6 +278,8 @@ namespace Freetime.PluginManagement
 
         private void LoadDataSessionServices(string sourceXml)
         {
+            if (!File.Exists(sourceXml))
+                throw new FileNotFoundException(sourceXml);
             m_dataServiceList = GetDataSessionServiceList(sourceXml);
         }
 
