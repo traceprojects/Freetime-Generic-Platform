@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Freetime.Web.Routing</RootNamespace>
     <AssemblyName>Freetime.Web.Routing</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -33,6 +33,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>tekworc.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -93,8 +94,9 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Assemblies\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Routing">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -116,16 +118,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseViewEngine.cs" />
+    <Compile Include="ExtendedRazorViewEngine.cs" />
     <Compile Include="IsRootActionConstraint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewEngine.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Freetime.Web.Context\Freetime.Web.Context.csproj">
-      <Project>{31BE1E39-657D-4522-9F1E-91EF5B249048}</Project>
-      <Name>Freetime.Web.Context</Name>
-    </ProjectReference>
+    <Compile Include="ExtendedWebFormViewEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -146,6 +142,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="tekworc.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Freetime.Web.Context\Freetime.Web.Context.csproj">
+      <Project>{31BE1E39-657D-4522-9F1E-91EF5B249048}</Project>
+      <Name>Freetime.Web.Context</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

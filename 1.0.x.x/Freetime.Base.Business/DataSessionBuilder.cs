@@ -84,6 +84,11 @@ namespace Freetime.Base.Business
                     }
 
                     DataSessionFactory = sessionFactory as IDataSessionFactory;
+
+                    foreach (DataSessionBuilderConfigurationAttribute attribute in sessionBuilderConfig.Attributes)
+                    {
+                        DataSessionFactory.AddAttribute(attribute.Key, attribute.Value);
+                    }
                 }
             }
             catch (Exception ex)

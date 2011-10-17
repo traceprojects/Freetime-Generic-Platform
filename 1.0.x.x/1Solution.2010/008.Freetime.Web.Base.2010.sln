@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Web.Context.2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Web.Routing.2010", "..\Unit.Testing\Test.Freetime.Web.Routing\Test.Freetime.Web.Routing.2010.csproj", "{46682108-1E79-49C4-93FE-2CDA26D8D7CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Web.View", "..\Unit.Testing\Test.Freetime.Web.View\Test.Freetime.Web.View.csproj", "{D576CDDF-33C5-4746-89C0-6A21D92BE329}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Web.View.2010", "..\Unit.Testing\Test.Freetime.Web.View\Test.Freetime.Web.View.2010.csproj", "{D576CDDF-33C5-4746-89C0-6A21D92BE329}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Web.Authorization.2010", "..\Unit.Testing\Test.Freetime.Web.Authorization\Test.Freetime.Web.Authorization.2010.csproj", "{3D0C32BC-CEF3-43BB-B101-F7CCC24D3AB7}"
 EndProject
@@ -37,7 +37,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Web.Controller", "..\Unit.Testing\Test.Freetime.Web.Controller\Test.Freetime.Web.Controller.csproj", "{B602EF23-C776-4452-86AE-8573EE897C89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Web.Controller.2010", "..\Unit.Testing\Test.Freetime.Web.Controller\Test.Freetime.Web.Controller.2010.csproj", "{B602EF23-C776-4452-86AE-8573EE897C89}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution

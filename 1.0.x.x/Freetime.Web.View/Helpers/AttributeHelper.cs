@@ -33,7 +33,7 @@ namespace Freetime.Web.View.Helpers
             var attributes = GetProperties(o);
             foreach (PropertyValue value in attributes)
             {
-                sb.Append(string.Format("{0}=\"{1}\" ", value.Name, value.Value.ToString()));
+                sb.Append(string.Format("{0}=\"{1}\" ", value.Name, value.Value));
             }
             return sb.ToString();
         }

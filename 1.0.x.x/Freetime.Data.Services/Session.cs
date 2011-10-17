@@ -25,6 +25,32 @@ namespace Freetime.Data.Services
         public Session(ServiceHost host, Type contract, Type service)
         {
             Host = host;
+            //serviceHost.Description.Behaviors
+            //Host.Description.Behaviors.Add(
+
+            //System.ServiceModel.Description.ServiceCredentials credential = new System.ServiceModel.Description.ServiceCredentials();
+            //credential.UserNameAuthentication.CustomUserNamePasswordValidator = new ClientValidator();
+           // credential.ClientCertificate.Certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(@"C:\Documents and Settings\Administrator\Desktop\test.pfx");
+            
+            //credential.ClientCertificate.Certificate.FriendlyName = "cn=localhost";
+            //credential.ClientCertificate.Authentication.TrustedStoreLocation = System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine;
+            
+            //credential.ClientCertificate.Certificate = new System.Security.Cryptography.X509Certificates.X509Certificate2(
+            //credential.ClientCertificate.Authentication.TrustedStoreLocation = System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine;
+            
+            //credential.ClientCertificate.SetCertificate("cn=freeg",
+            //    System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine,
+            //    System.Security.Cryptography.X509Certificates.StoreName.Root);
+
+    //        c.ClientCredentials.ClientCertificate.SetCertificate(
+    //StoreLocation.CurrentUser,
+    //StoreName.My,
+    //X509FindType.FindBySubjectName,
+    //"contoso.com");
+
+
+//            Host.Description.Behaviors.Add(credential);
+            
             Contract = contract;
             ContractName = Contract.Name;
             Service = service;

@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Configuration;
+﻿using System.Web.Mvc;
 using System.Web.Routing;
-using Freetime.GlobalHandling;
-using Freetime.Base.Business;
 using Freetime.Base.Framework.Diagnostics;
 using Freetime.Base.Component.Diagnostics;
 using Freetime.Web.Controller;
+using Freetime.Web.Routing;
 
 namespace Freetime.Web
 {
-    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
-    // visit http://go.microsoft.com/?LinkId=9394801
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -37,8 +29,10 @@ namespace Freetime.Web
         protected virtual void Application_Start()
         {
             ViewEngines.Engines.Clear();
-            Freetime.Web.Routing.ViewEngine engine = new Freetime.Web.Routing.ViewEngine();
+            var engine = new ExtendedWebFormViewEngine();
+
             ViewEngines.Engines.Add(engine);
+
             RegisterRoutes(RouteTable.Routes);          
             
             
@@ -50,14 +44,14 @@ namespace Freetime.Web
             //PluginLogic.PluginManager.LoadEventHandlers(@"C:\Documents and Settings\Administrator\Desktop\freetime\1.0.1.x\Freetime.Web\Config\Events.config");
 
             //Set Controller Factory
-            ControllerFactory factory = new Freetime.Web.Controller.ControllerFactory();
+            var factory = new ControllerFactory();
             ControllerBuilder.Current.SetControllerFactory(factory);
 
             //Set DataSessionFactory
             //Freetime.Data.Services.Client.DataSessionFactory dataSessionFactory = new Freetime.Data.Services.Client.DataSessionFactory();
 
             //Add Trace Listener
-            LogWriterTraceListener listener = new Freetime.Base.Component.Diagnostics.LogWriterTraceListener();
+            var listener = new LogWriterTraceListener();
             TraceUtil.AddListener(listener);            
         }
     }

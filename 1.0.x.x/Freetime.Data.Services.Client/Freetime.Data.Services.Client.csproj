@@ -50,7 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSessionFactory.cs" />
+    <Compile Include="TestTools\PermissiveCertificatePolicy.cs" />
+    <Compile Include="WSDataSessionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
