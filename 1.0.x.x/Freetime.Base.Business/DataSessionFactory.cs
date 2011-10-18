@@ -1,7 +1,4 @@
 ﻿using System;
-using System.ServiceModel;
-using System.Collections.Generic;
-using System.Reflection.Emit;
 using Freetime.Base.Business.Implementable;
 
 namespace Freetime.Base.Business
@@ -12,11 +9,14 @@ namespace Freetime.Base.Business
 
         internal DataSessionFactory()
         {
-            UseDefaultDataSession = true;
+            UseDefaultDataSession = false;
         }
 
         TContract IDataSessionFactory.GetDataSession<TContract>(ILogic logic, TContract defaultContract)
         {
+            if (UseDefaultDataSession)
+                return defaultContract;
+
             var blogic = PluginManagement.PluginManager.Current.GetBusinessLogic(logic.GetType().FullName);
 
             if (blogic == null)
@@ -27,21 +27,27 @@ namespace Freetime.Base.Business
             if(sessionType == null)
                 throw new Exception(string.Format("Unknown type: {0}, {1}", blogic.DataSessionType, blogic.DataSessionAssembly));
 
-            var typeInstance = Freetime.Base.Framework.Activator.CreateInstance(sessionType);
+            var typeInstance = Framework.Activator.CreateInstance(sessionType);
 
             if(!typeof(TContract).IsAssignableFrom(typeInstance.GetType()))
                 return defaultContract;
 
             var sessionInstance = (TContract) typeInstance;
 
-            return (Equals(sessionInstance, null)) 
-                ? defaultContract 
-                : sessionInstance;
+            return sessionInstance;
         }
 
         void IDataSessionFactory.AddAttribute(string key, string value)
         {
 
+            if(key.ToLower() != "usedefaultsession")
+                return;
+
+            if (string.IsNullOrEmpty(value))
+                return;
+
+            if (value.ToLower() == "true")
+                UseDefaultDataSession = true;
         }
     }
 }

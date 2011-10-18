@@ -1,27 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Security.Principal;
-using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
-using System.Web.UI;
 using Freetime.Authentication;
 using Freetime.Base.Business;
 using Freetime.Base.Business.Implementable;
-using Freetime.Base.Data.Contracts;
-using Freetime.Base.Data.Entities;
 using Freetime.Web.Context;
 
 namespace Freetime.Web.Controller
 {
     public class AccountController : BaseController<IAuthenticationLogic>
     {
-        protected override IAuthenticationLogic NewControllerLogic()
+        protected override IAuthenticationLogic DefaultLogic
         {
-            return new AuthenticationLogic();
+            get { return new AuthenticationLogic(); }
         }
+
 
         public ActionResult Logon()
         {
@@ -42,7 +34,7 @@ namespace Freetime.Web.Controller
 
         public ActionResult Logoff()
         {
-            Logic.SignOutUser(CurrentUser);
+            CurrentLogic.SignOutUser(CurrentUser);
             string theme = UserHandle.CurrentUser.DefaultTheme;
             SetCurrentUser(null);
             UserHandle.CurrentUser.DefaultTheme = theme;
@@ -66,14 +58,14 @@ namespace Freetime.Web.Controller
             }
 
             FreetimeUser user = null;
-            bool isAuthorized = Logic.SignInUser(userName, password, "", ref user);
+            bool isAuthorized = CurrentLogic.SignInUser(userName, password, "", ref user);
 
             SetCurrentUser(user);
             return isAuthorized;
             //return ModelState.IsValid;
         }
 
-        private void SetCurrentUser(FreetimeUser user)
+        private static void SetCurrentUser(FreetimeUser user)
         {
             UserHandle.SetCurrentFreetimeUser(user);
         }

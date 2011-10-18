@@ -8,5 +8,6 @@ namespace Freetime.Web.Controller.Implementable
 {
     public interface IFreetimeController : System.Web.Mvc.IController
     {
+        FreetimeUser CurrentUser { get; }
     }
 }

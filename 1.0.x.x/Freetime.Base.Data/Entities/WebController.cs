@@ -33,6 +33,14 @@ namespace Freetime.Base.Data.Entities
         public string AssemblyLocation { get; set; }
 
         [DataMember]
+        [XmlElement("BusinessLogicType")]
+        public string BusinessLogicType { get; set; }
+
+        [DataMember]
+        [XmlElement("BusinessLogicAssembly")]
+        public string BusinessLogicAssembly { get; set; }
+
+        [DataMember]
         [XmlElement("IsActive")]
         public bool IsActive { get; set; }
     }
