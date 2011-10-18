@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FreetimeUser.cs" />
+    <Compile Include="IUserable.cs" />
     <Compile Include="Permission.cs" />
     <Compile Include="PermissionCollection.cs" />
     <Compile Include="PermissionSingleton.cs" />

@@ -20,9 +20,17 @@ namespace Freetime.Base.Data
 
         protected virtual FreetimeUser CurrentUser { get; set;}
 
-        private static ISession GetDefaultSession()
+        private ISession GetDefaultSession()
         {
             var provider = ProviderFactory.GetProvider();
+
+            if (typeof(IUserable).IsAssignableFrom(provider.GetType()))
+            {
+                var userable = provider as IUserable;
+                if(!Equals(userable, null))
+                    userable.CurrentUser = CurrentUser;
+            }
+
             var session = ProviderFactory.GetSession(provider);
             return session;
         }
