@@ -47,7 +47,7 @@ namespace Freetime.Data.SqlClient
                 ProcessExpression(lambda.Body);
                 return expression;
             }
-            
+
             if (expression.Method.DeclaringType == typeof(Queryable) && expression.Method.Name == "Single")
             {
                 ProcessExpression(expression.Arguments[0]);
@@ -57,7 +57,7 @@ namespace Freetime.Data.SqlClient
                 ProcessExpression(lambda.Body);
                 return expression;
             }
-            
+
             if (expression.Method.DeclaringType == typeof(Queryable) && expression.Method.Name == "Select")
             {
                 ProcessExpression(expression.Arguments[0]);
@@ -123,11 +123,11 @@ namespace Freetime.Data.SqlClient
         {
             var q = expression.Value as IQueryable;
             if (q != null)
-            {                
+            {
 
                 var columnBuilder = new StringBuilder();
                 var schemaTable = Provider.GetSchema(q.ElementType);
-                
+
                 foreach (var column in schemaTable)
                 {
                     if (columnBuilder.Length > 0)
@@ -142,7 +142,7 @@ namespace Freetime.Data.SqlClient
                     FROM,
                     schemaTable.ViewSource
                     ));
-                
+
             }
             else if (expression.Value == null)
             {
@@ -181,31 +181,31 @@ namespace Freetime.Data.SqlClient
 
                 return expression;
             }
-            
+
             if (expression.Expression != null && expression.Expression.NodeType == ExpressionType.MemberAccess)
             {
                 var propertyInfo = expression.Member as PropertyInfo;
 
-                if(Equals(propertyInfo, null))
+                if (Equals(propertyInfo, null))
                     throw new NullReferenceException("propertyInfo");
 
                 var memberExpression = expression.Expression as MemberExpression;
 
-                if(Equals(memberExpression, null))
+                if (Equals(memberExpression, null))
                     throw new NullReferenceException("memberExpression");
 
                 var fieldInfo = memberExpression.Member as FieldInfo;
                 var cExpression = memberExpression.Expression as ConstantExpression;
 
-                if(Equals(fieldInfo, null))
+                if (Equals(fieldInfo, null))
                     throw new NullReferenceException("fieldInfo");
 
-                if(Equals(cExpression, null))
+                if (Equals(cExpression, null))
                     throw new NullReferenceException("cExpression");
 
                 var objectValue = fieldInfo.GetValue(cExpression.Value);
 
-                object value = propertyInfo.GetValue(objectValue, null);
+                var value = propertyInfo.GetValue(objectValue, null);
 
                 switch (Type.GetTypeCode(value.GetType()))
                 {
@@ -221,18 +221,18 @@ namespace Freetime.Data.SqlClient
                 }
                 return expression;
             }
-            
+
             if (expression.Expression != null && expression.Expression.NodeType == ExpressionType.Constant)
             {
                 var fieldInfo = expression.Member as FieldInfo;
 
-                if(Equals(fieldInfo, null))
+                if (Equals(fieldInfo, null))
                     throw new NullReferenceException("fieldInfo");
 
                 var cExpression = expression.Expression as ConstantExpression;
-                
-                if(Equals(cExpression, null))
-                    throw  new NullReferenceException("cExpression");
+
+                if (Equals(cExpression, null))
+                    throw new NullReferenceException("cExpression");
 
                 var value = fieldInfo.GetValue(cExpression.Value);
 
@@ -250,17 +250,17 @@ namespace Freetime.Data.SqlClient
                 }
                 return expression;
             }
-            
+
             if (expression.Expression != null && expression.Expression.NodeType == ExpressionType.Call)
             {
                 var propertyInfo = expression.Member as PropertyInfo;
 
-                if(Equals(propertyInfo, null))
-                    throw  new NullReferenceException("propertyInfo");
+                if (Equals(propertyInfo, null))
+                    throw new NullReferenceException("propertyInfo");
 
                 var callExpression = expression.Expression as MethodCallExpression;
 
-                if(Equals(callExpression, null))
+                if (Equals(callExpression, null))
                     throw new NullReferenceException("callExpression");
 
                 var methodInfo = callExpression.Method;
@@ -269,25 +269,25 @@ namespace Freetime.Data.SqlClient
                 {
                     var consExpression = callExpression.Arguments[i] as ConstantExpression;
 
-                    if(Equals(consExpression, null))
+                    if (Equals(consExpression, null))
                         throw new NullReferenceException("consExpression");
                     methodParams[i] = consExpression.Value;
                 }
 
                 var memberExpression = callExpression.Object as MemberExpression;
 
-                if(Equals(memberExpression, null))
+                if (Equals(memberExpression, null))
                     throw new NullReferenceException("memberExpression");
 
                 var fieldInfo = memberExpression.Member as FieldInfo;
 
-                if(Equals(fieldInfo, null))
-                    throw  new NullReferenceException("fieldInfo");
+                if (Equals(fieldInfo, null))
+                    throw new NullReferenceException("fieldInfo");
 
                 var cExpression = memberExpression.Expression as ConstantExpression;
 
-                if(Equals(cExpression, null))
-                    throw  new NullReferenceException("cExpression");
+                if (Equals(cExpression, null))
+                    throw new NullReferenceException("cExpression");
 
                 var objectContainer = fieldInfo.GetValue(cExpression.Value);
 
@@ -321,7 +321,7 @@ namespace Freetime.Data.SqlClient
                     ProcessExpression(expression.Operand);
                     break;
                 case ExpressionType.Quote:
-                    var lambda = (LambdaExpression) StripQuotes(expression);
+                    var lambda = (LambdaExpression)StripQuotes(expression);
                     ProcessExpression(lambda.Body);
                     break;
                 default:

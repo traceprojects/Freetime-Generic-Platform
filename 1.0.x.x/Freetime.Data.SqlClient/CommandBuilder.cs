@@ -21,10 +21,11 @@ namespace Freetime.Data.SqlClient
 {
     public class CommandBuilder: AdoCommandBuilderBase
     {
+
         #region Variables
         private static Dictionary<string, Command> s_commandCache;
         private static Dictionary<Type, string> s_columnSelectCache;
-        
+
         private const string SELECT = "SELECT";
         private const string FROM = "FROM";
         private const string WHERE = "WHERE";
@@ -170,7 +171,7 @@ namespace Freetime.Data.SqlClient
         public override ICommand CreateGetTCommand<T>(Expression expression)
         {
             var typeT = typeof(T);
-            var schemaTable = Provider.GetSchema(typeT); 
+            var schemaTable = Provider.GetSchema(typeT);
 
             var sqlCommand = new Command();
 
@@ -179,7 +180,7 @@ namespace Freetime.Data.SqlClient
 
             sqlCommand.SqlCommand.CommandText = sqlCommand.SqlCommand.CommandText =
                     string.Format("{0} {1} {2} {3} {4} {5}",
-                    SELECT, SelectColumnsStatement(typeT), FROM, schemaTable.ViewSource, WHERE, whereText);            
+                    SELECT, SelectColumnsStatement(typeT), FROM, schemaTable.ViewSource, WHERE, whereText);
 
             return sqlCommand;
         }
@@ -199,7 +200,7 @@ namespace Freetime.Data.SqlClient
 
                 if ((from column in schemaTable where column.IsPrimaryKey select column).Count() < 1)
                     throw new TypeNoKeyException(typeof(T));
-                
+
                 var paramBuilder = new StringBuilder();
                 foreach (var column in from column in schemaTable where column.IsPrimaryKey select column)
                 {
@@ -223,7 +224,7 @@ namespace Freetime.Data.SqlClient
         {
             Type typeT = typeof(T);
             const string uniqueId = "232FDED0-6C97-40B4-930F-FC190124D181";
-            if (!CommandCache.ContainsKey(string.Format(CACHE_KEY, uniqueId , typeT.FullName)))
+            if (!CommandCache.ContainsKey(string.Format(CACHE_KEY, uniqueId, typeT.FullName)))
             {
                 var schemaTable = Provider.GetSchema(typeT);
 
@@ -246,7 +247,7 @@ namespace Freetime.Data.SqlClient
             {
                 var schemaTable = Provider.GetSchema(typeT);
 
-                var sqlCommand = new Command();                
+                var sqlCommand = new Command();
 
                 sqlCommand.SqlCommand.CommandText = string.Format(
                     "{0} {1} {2} {3}",
@@ -260,7 +261,7 @@ namespace Freetime.Data.SqlClient
         public override ICommand CreateGetListCommand<T>(Expression expression)
         {
             var typeT = typeof(T);
-        
+
             var schemaTable = Provider.GetSchema(typeT);
 
             var translator = new Translator(Provider);
@@ -278,7 +279,7 @@ namespace Freetime.Data.SqlClient
 
         #region CreateGetListByPageCommand
         public override ICommand CreateGetListByPageCommand<T>()
-        {           
+        {
             var typeT = typeof(T);
             const string uniqueId = "D89646AE-F93B-4D59-9A0C-7AF5A6B79F5D";
             if (!CommandCache.ContainsKey(string.Format(CACHE_KEY, uniqueId, typeT.FullName)))
@@ -292,7 +293,7 @@ namespace Freetime.Data.SqlClient
                 var columnBuilder = new StringBuilder();
                 var keyBuilder = new StringBuilder();
                 var keyCompareBuilder = new StringBuilder();
-                
+
                 foreach (TypeColumn column in schemaTable)
                 {
                     if (columnBuilder.Length > 0)
@@ -311,14 +312,14 @@ namespace Freetime.Data.SqlClient
                     keyCompareBuilder.Append(tempTable + DOT + column.Name);
                     keyCompareBuilder.Append(SPACE + EQUALS + SPACE);
                     keyCompareBuilder.Append(schemaTable.ViewSource + DOT + column.Name);
-                    
+
                 }
 
-                sqlCommand.SqlCommand.CommandText = string.Format(GET_TABLE_BY_PAGE, 
+                sqlCommand.SqlCommand.CommandText = string.Format(GET_TABLE_BY_PAGE,
                     tempTable,
                     tempTable,
-                    keyBuilder, 
-                    keyBuilder, 
+                    keyBuilder,
+                    keyBuilder,
                     tempTable,
                     schemaTable.ViewSource,
                     SelectColumnsStatement(typeT),
@@ -338,7 +339,7 @@ namespace Freetime.Data.SqlClient
 
         public override ICommand CreateGetListByPageCommand<T>(Expression expression)
         {
-            var typeT = typeof(T);            
+            var typeT = typeof(T);
             var schemaTable = Provider.GetSchema(typeT);
 
             var sqlCommand = new Command();
@@ -397,9 +398,8 @@ namespace Freetime.Data.SqlClient
         #region CreateCommandFromProcedure
         public override ICommand CreateCommandFromProcedure(Procedure procedure)
         {
-            var command = new SqlCommand(procedure.ProcedureName) 
-                { CommandType = CommandType.StoredProcedure };
-            
+            var command = new SqlCommand(procedure.ProcedureName) { CommandType = CommandType.StoredProcedure };
+
             foreach (var procedureParam in procedure.Parameters)
             {
                 var parameter = command.CreateParameter();
@@ -461,7 +461,7 @@ namespace Freetime.Data.SqlClient
                     }
                     columnBuilder.Append(column.Name);
                     paramBuilder.Append(PARAM_IDENTIFIER + column.Name);
-                    if(!sqlCommand.Parameters.ContainsKey(string.Format("{0}{1}", PARAM_IDENTIFIER, column.Name)))
+                    if (!sqlCommand.Parameters.ContainsKey(string.Format("{0}{1}", PARAM_IDENTIFIER, column.Name)))
                         sqlCommand.AddParam(string.Format("{0}{1}", PARAM_IDENTIFIER, column.Name));
                 }
                 commandTextBuilder.Append(string.Format("{0} {1} {2}",
@@ -474,15 +474,15 @@ namespace Freetime.Data.SqlClient
                 commandTextBuilder.Append(paramBuilder.ToString());
                 commandTextBuilder.Append(CLOSE_PARENTHESES + SEMI_COLON);
 
-                if(identityColumn != null)
+                if (identityColumn != null)
                     commandTextBuilder.Append(string.Format("SELECT {0} FROM {1} WHERE {2} = (SELECT IDENT_CURRENT('{3}'));"
                         , schemaTable.ColumnList
                         , schemaTable.ViewSource
                         , identityColumn.Name
                         , schemaTable.ViewSource));
-                
-                sqlCommand.SqlCommand.CommandText = commandTextBuilder.ToString();               
-                
+
+                sqlCommand.SqlCommand.CommandText = commandTextBuilder.ToString();
+
                 CommandCache.Add(string.Format(CACHE_KEY, uniqueId, typeT.FullName), sqlCommand);
             }
             return CommandCache[string.Format(CACHE_KEY, uniqueId, typeT.FullName)];
@@ -502,7 +502,7 @@ namespace Freetime.Data.SqlClient
 
             if (schemaTable.HasIdentity)
                 return CreateUpdateByIdCommand(data, typeT);
-            
+
             return (schemaTable.HasKey)
                 ? CreateUpdateByKeyCommand(data, typeT)
                 : null;
@@ -519,18 +519,19 @@ namespace Freetime.Data.SqlClient
             var commandTextBuilder = new StringBuilder();
             var paramBuilder = new StringBuilder();
 
-            foreach (var column in (from col in schemaTable where 
-                         !col.ViewOnly 
-                         && !col.IsIdentity
-                         && !sqlCommand.Parameters.ContainsKey(col.Name)
-                         select col))
+            foreach (var column in (from col in schemaTable
+                                    where
+                                        !col.ViewOnly
+                                        && !col.IsIdentity
+                                        && !sqlCommand.Parameters.ContainsKey(string.Format("{0}{1}", PARAM_IDENTIFIER, col.Name))
+                                    select col))
             {
                 if (paramBuilder.Length > 0)
                     paramBuilder.Append(COMMA + SPACE);
                 paramBuilder.Append(column.Name + SPACE + EQUALS + SPACE);
                 paramBuilder.Append(PARAM_IDENTIFIER + column.Name);
                 if (!sqlCommand.Parameters.ContainsKey(string.Format("{0}{1}", PARAM_IDENTIFIER, column.Name)))
-                    sqlCommand.AddParam(string.Format("{0}{1}", PARAM_IDENTIFIER, column.Name));               
+                    sqlCommand.AddParam(string.Format("{0}{1}", PARAM_IDENTIFIER, column.Name));
             }
 
 
@@ -558,7 +559,7 @@ namespace Freetime.Data.SqlClient
             const string uniqueId = "34FD7357-8114-4f36-825E-77C3F819B39F";
             if (!CommandCache.ContainsKey(string.Format(CACHE_KEY, uniqueId, typeT.FullName)))
             {
-                Command sqlCommand = _CreateUpdateByKeyCommand(data, typeT);
+                Command sqlCommand = _CreateUpdateByKeyCommand(typeT);
                 CommandCache.Add(string.Format(CACHE_KEY, uniqueId, typeT.FullName), sqlCommand);
             }
             return CommandCache[string.Format(CACHE_KEY, uniqueId, typeT.FullName)];
@@ -569,13 +570,13 @@ namespace Freetime.Data.SqlClient
             const string uniqueId = "34FD7357-8114-4f36-825E-77C3F819B39F";
             if (!CommandCache.ContainsKey(string.Format(CACHE_KEY, uniqueId, type.FullName)))
             {
-                Command sqlCommand = _CreateUpdateByKeyCommand(data, type);
+                Command sqlCommand = _CreateUpdateByKeyCommand(type);
                 CommandCache.Add(string.Format(CACHE_KEY, uniqueId, type.FullName), sqlCommand);
             }
             return CommandCache[string.Format(CACHE_KEY, uniqueId, type.FullName)];
         }
 
-        private Command _CreateUpdateByKeyCommand(object data, Type type)
+        private Command _CreateUpdateByKeyCommand(Type type)
         {
             var schemaTable = Provider.GetSchema(type);
 
@@ -585,9 +586,10 @@ namespace Freetime.Data.SqlClient
             var paramBuilder = new StringBuilder();
             var whereBuilder = new StringBuilder();
 
-            foreach (var column in 
-                (from col in schemaTable where !col.ViewOnly
-                 && !(col.IsIdentity || sqlCommand.Parameters.ContainsKey(string.Format("{0}{1}", PARAM_IDENTIFIER, col.Name)))
+            foreach (var column in
+                (from col in schemaTable
+                 where !col.ViewOnly
+                     && !(col.IsIdentity || sqlCommand.Parameters.ContainsKey(string.Format("{0}{1}", PARAM_IDENTIFIER, col.Name)))
                  select col))
             {
                 if (paramBuilder.Length > 0)
@@ -609,7 +611,7 @@ namespace Freetime.Data.SqlClient
                 whereBuilder.Append(PARAM_IDENTIFIER_ORIGINAL + column.Name);
                 if (!sqlCommand.Parameters.ContainsKey(string.Format("{0}{1}", PARAM_IDENTIFIER_ORIGINAL, column.Name)))
                     sqlCommand.AddParam(string.Format("{0}{1}", PARAM_IDENTIFIER_ORIGINAL, column.Name));
-                
+
             }
 
             commandTextBuilder.Append(string.Format("{0} {1} {2}",
@@ -629,12 +631,12 @@ namespace Freetime.Data.SqlClient
 
         #region CreateUpdateByIdCommand
         public override ICommand CreateUpdateByIdCommand(object data)
-        { 
+        {
             var typeT = data.GetType();
             const string uniqueId = "80065C07-24CD-40E8-9642-A46085892480";
             if (!CommandCache.ContainsKey(string.Format(CACHE_KEY, uniqueId, typeT.FullName)))
             {
-                var sqlCommand = _CreateUpdateByIdCommand(data, typeT);
+                var sqlCommand = _CreateUpdateByIdCommand(typeT);
                 CommandCache.Add(string.Format(CACHE_KEY, uniqueId, typeT.FullName), sqlCommand);
             }
             return CommandCache[string.Format(CACHE_KEY, uniqueId, typeT.FullName)];
@@ -645,12 +647,12 @@ namespace Freetime.Data.SqlClient
             const string uniqueId = "80065C07-24CD-40E8-9642-A46085892480";
             if (!CommandCache.ContainsKey(string.Format(CACHE_KEY, uniqueId, type.FullName)))
             {
-                var sqlCommand = _CreateUpdateByIdCommand(data, type);
+                var sqlCommand = _CreateUpdateByIdCommand(type);
                 CommandCache.Add(string.Format(CACHE_KEY, uniqueId, type.FullName), sqlCommand);
             }
             return CommandCache[string.Format(CACHE_KEY, uniqueId, type.FullName)];
         }
-        private Command _CreateUpdateByIdCommand(object data, Type type)
+        private Command _CreateUpdateByIdCommand(Type type)
         {
             var schemaTable = Provider.GetSchema(type);
 
@@ -659,9 +661,10 @@ namespace Freetime.Data.SqlClient
             var commandTextBuilder = new StringBuilder();
             var paramBuilder = new StringBuilder();
             var whereBuilder = new StringBuilder();
-            foreach (TypeColumn column in 
-                (from col in schemaTable where !col.ViewOnly 
-                 && !(sqlCommand.Parameters.ContainsKey(string.Format("{0}{1}", PARAM_IDENTIFIER, col.Name)))
+            foreach (TypeColumn column in
+                (from col in schemaTable
+                 where !col.ViewOnly
+                     && !(sqlCommand.Parameters.ContainsKey(string.Format("{0}{1}", PARAM_IDENTIFIER, col.Name)))
                  select col))
             {
                 if (!column.IsIdentity)
@@ -713,7 +716,7 @@ namespace Freetime.Data.SqlClient
 
             if (schemaTable.HasIdentity)
                 return CreateDeleteByIdCommand(data, typeT);
-            
+
             return (schemaTable.HasKey)
                 ? CreateDeleteByKeyCommand(data, typeT)
                 : null;
@@ -745,7 +748,7 @@ namespace Freetime.Data.SqlClient
             {
                 var schemaTable = Provider.GetSchema(typeT);
 
-                var sqlCommand = _CreateDeletebyIdCommand(data, schemaTable);
+                var sqlCommand = _CreateDeletebyIdCommand(schemaTable);
                 CommandCache.Add(string.Format(CACHE_KEY, uniqueId, typeT.FullName), sqlCommand);
             }
             return CommandCache[string.Format(CACHE_KEY, uniqueId, typeT.FullName)];
@@ -758,13 +761,13 @@ namespace Freetime.Data.SqlClient
             {
                 var schemaTable = Provider.GetSchema(type);
 
-                var sqlCommand = _CreateDeletebyIdCommand(data, schemaTable);
+                var sqlCommand = _CreateDeletebyIdCommand(schemaTable);
                 CommandCache.Add(string.Format(CACHE_KEY, uniqueId, type.FullName), sqlCommand);
             }
             return CommandCache[string.Format(CACHE_KEY, uniqueId, type.FullName)];
         }
 
-        private Command _CreateDeletebyIdCommand(object data, TypeTable schemaTable)
+        private Command _CreateDeletebyIdCommand(TypeTable schemaTable)
         {
             var sqlCommand = new Command();
 
@@ -803,7 +806,7 @@ namespace Freetime.Data.SqlClient
             {
                 var schemaTable = Provider.GetSchema(typeT);
 
-                var sqlCommand = _CreateDeletebyKeyCommand(data, schemaTable);
+                var sqlCommand = _CreateDeletebyKeyCommand(schemaTable);
                 CommandCache.Add(string.Format(CACHE_KEY, uniqueId, typeT.FullName), sqlCommand);
             }
             return CommandCache[string.Format(CACHE_KEY, uniqueId, typeT.FullName)];
@@ -816,13 +819,13 @@ namespace Freetime.Data.SqlClient
             {
                 var schemaTable = Provider.GetSchema(type);
 
-                var sqlCommand = _CreateDeletebyKeyCommand(data, schemaTable);
+                var sqlCommand = _CreateDeletebyKeyCommand(schemaTable);
                 CommandCache.Add(string.Format(CACHE_KEY, uniqueId, type.FullName), sqlCommand);
             }
             return CommandCache[string.Format(CACHE_KEY, uniqueId, type.FullName)];
         }
 
-        private Command _CreateDeletebyKeyCommand(object data, TypeTable schemaTable)
+        private Command _CreateDeletebyKeyCommand(TypeTable schemaTable)
         {
             var sqlCommand = new Command();
 
@@ -856,7 +859,7 @@ namespace Freetime.Data.SqlClient
 
         #region Count
         public override ICommand CreateCountCommand(string source)
-        {            
+        {
             var sqlCommand = new Command();
             sqlCommand.SqlCommand.CommandText = string.Format("{0} {1}(1) {2} {3}", SELECT, COUNT, FROM, source);
             return sqlCommand;
@@ -869,7 +872,7 @@ namespace Freetime.Data.SqlClient
             if (!CommandCache.ContainsKey(string.Format(CACHE_KEY, uniqueId, typeT.FullName)))
             {
                 var schemaTable = Provider.GetSchema(typeT);
-                var sqlCommand = (Command) CreateCountCommand(schemaTable.ViewSource);                
+                var sqlCommand = (Command)CreateCountCommand(schemaTable.ViewSource);
                 CommandCache.Add(string.Format(CACHE_KEY, uniqueId, typeT.FullName), sqlCommand);
             }
             return CommandCache[string.Format(CACHE_KEY, uniqueId, typeT.FullName)];
@@ -880,7 +883,7 @@ namespace Freetime.Data.SqlClient
             var translator = new Translator(Provider);
             var typeT = typeof(T);
             var schemaTable = Provider.GetSchema(typeT);
-            string commandText = string.Format("{0} {1}(1) {2} {3} {4} {5}", SELECT, 
+            string commandText = string.Format("{0} {1}(1) {2} {3} {4} {5}", SELECT,
                 COUNT,
                 FROM,
                 schemaTable.ViewSource,
@@ -943,7 +946,7 @@ namespace Freetime.Data.SqlClient
                 ColumnSelectCache.Add(type, columnSb.ToString());
             }
             return ColumnSelectCache[type];
-        }     
+        }
 
         #endregion
 
