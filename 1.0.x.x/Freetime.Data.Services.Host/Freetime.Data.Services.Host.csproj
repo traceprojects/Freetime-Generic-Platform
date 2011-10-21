@@ -38,7 +38,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -47,7 +47,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,10 +57,6 @@
     <Reference Include="Anito.Data, Version=1.0.1.7, Culture=neutral, PublicKeyToken=967ed64547aa0488, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Assemblies\Anito.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Anito.Data.SqlClient, Version=1.0.1.7, Culture=neutral, PublicKeyToken=967ed64547aa0488, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Assemblies\Anito.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Base.Data, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -73,6 +69,10 @@
     <Reference Include="Freetime.Data.Services, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Debug\Freetime.Data.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Freetime.Data.SqlClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b86d1ba90a0e7353, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Debug\Freetime.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.PluginManagement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -119,7 +119,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Config\DataServices.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
