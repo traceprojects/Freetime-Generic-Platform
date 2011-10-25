@@ -1,6 +1,4 @@
-@echo off
 call "C:\Program Files\Microsoft Visual Studio 10.0\VC\vcvarsall.bat"
-@echo on
 
 echo Building 001.Freetime.Framework.2010.sln
 echo.
@@ -61,13 +59,6 @@ echo.
 echo Building 009.Freetime.Web.2010.sln
 echo.
 devenv /build debug "1Solution.2010\009.Freetime.Web.2010.sln"
-echo. 
-echo Done Building 009.Freetime.Web.2010.sln
-echo.
-
-echo Building 900.Freetime.Unit.Test.2010.sln
-echo.
-devenv /build debug "1Solution.2010\900.Freetime.Unit.Test.2010.sln"
 echo. 
 echo Done Building 009.Freetime.Web.2010.sln
 echo.

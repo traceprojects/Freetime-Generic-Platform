@@ -49,35 +49,35 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Freetime.Authentication">
-      <HintPath>..\bin\Debug\Freetime.Authentication.dll</HintPath>
+      <HintPath>..\bin\Freetime.Authentication.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Base.Component">
-      <HintPath>..\bin\Debug\Freetime.Base.Component.dll</HintPath>
+      <HintPath>..\bin\Freetime.Base.Component.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Base.Framework">
-      <HintPath>..\bin\Debug\Freetime.Base.Framework.dll</HintPath>
+      <HintPath>..\bin\Freetime.Base.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Configuration">
-      <HintPath>..\bin\Debug\Freetime.Configuration.dll</HintPath>
+      <HintPath>..\bin\Freetime.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Data.SqlClient">
-      <HintPath>..\bin\Debug\Freetime.Data.SqlClient.dll</HintPath>
+      <HintPath>..\bin\Freetime.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.GlobalHandling">
-      <HintPath>..\bin\Debug\Freetime.GlobalHandling.dll</HintPath>
+      <HintPath>..\bin\Freetime.GlobalHandling.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.PluginManagement">
-      <HintPath>..\bin\Debug\Freetime.PluginManagement.dll</HintPath>
+      <HintPath>..\bin\Freetime.PluginManagement.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Web.Context">
-      <HintPath>..\bin\Debug\Freetime.Web.Context.dll</HintPath>
+      <HintPath>..\bin\Freetime.Web.Context.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Web.Routing, Version=1.0.1.1, Culture=neutral, PublicKeyToken=b86d1ba90a0e7353, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\Freetime.Web.Routing.dll</HintPath>
+      <HintPath>..\bin\Freetime.Web.Routing.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Web.View">
-      <HintPath>..\bin\Debug\Freetime.Web.View.dll</HintPath>
+      <HintPath>..\bin\Freetime.Web.View.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>

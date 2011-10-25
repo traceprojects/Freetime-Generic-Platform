@@ -39,7 +39,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -48,7 +48,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -57,27 +57,27 @@
   <ItemGroup>
     <Reference Include="Freetime.Authentication, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\Freetime.Authentication.dll</HintPath>
+      <HintPath>..\bin\Freetime.Authentication.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Base.Business, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\Freetime.Base.Business.dll</HintPath>
+      <HintPath>..\bin\Freetime.Base.Business.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Base.Data, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\Freetime.Base.Data.dll</HintPath>
+      <HintPath>..\bin\Freetime.Base.Data.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Base.Framework, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\Freetime.Base.Framework.dll</HintPath>
+      <HintPath>..\bin\Freetime.Base.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Configuration, Version=1.0.1.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\Freetime.Configuration.dll</HintPath>
+      <HintPath>..\bin\Freetime.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.PluginManagement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Debug\Freetime.PluginManagement.dll</HintPath>
+      <HintPath>..\bin\Freetime.PluginManagement.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
