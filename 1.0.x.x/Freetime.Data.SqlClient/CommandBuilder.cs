@@ -16,6 +16,7 @@ using Anito.Data;
 using Anito.Data.Exceptions;
 using Anito.Data.Schema;
 using Anito.Data.Common;
+using Anito.Data.Util;
 
 namespace Freetime.Data.SqlClient
 {
@@ -266,6 +267,38 @@ namespace Freetime.Data.SqlClient
 
             var translator = new Translator(Provider);
             string whereText = translator.Translate(expression);
+
+            var sqlCommand = new Command();
+
+            sqlCommand.SqlCommand.CommandText = string.Format(
+                "{0} {1} {2} {3} {4} {5}",
+                SELECT, SelectColumnsStatement(typeT), FROM, schemaTable.ViewSource, WHERE, whereText
+                );
+            return sqlCommand;
+        }
+        #endregion
+
+        #region CreateGetChildrenCommand
+        public override ICommand CreateGetChildrenCommand<T>(TypeRelation relation, object referenceValue)
+        {
+            var typeT = typeof(T);
+
+            var schemaTable = Provider.GetSchema(typeT);
+
+
+            var refKey = relation.ReferenceKey;
+            var colName = schemaTable.GetDbColumn(refKey);
+
+            string queryValue;
+
+            if (referenceValue is DateTime)
+                queryValue = string.Format("'{0}'", ((DateTime)referenceValue).ToString("MM/dd/yyyy H:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture));
+            else
+                queryValue = (Misc.IsNumericType(referenceValue.GetType()))
+                    ? referenceValue.ToString()
+                    : string.Format("'{0}'", referenceValue);
+
+            var whereText = string.Format("{0} = {1}", colName, queryValue);
 
             var sqlCommand = new Command();
 

@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Freetime.Base.Data</RootNamespace>
     <AssemblyName>Freetime.Base.Data</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -33,6 +33,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>tekworc.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -111,6 +112,7 @@
     <Compile Include="Entities\DataSessionService.cs" />
     <Compile Include="Entities\EventHandler.cs" />
     <Compile Include="Entities\Language.cs" />
+    <Compile Include="Entities\LanguageResource.cs" />
     <Compile Include="Entities\UserAccount.cs" />
     <Compile Include="Entities\UserGroup.cs" />
     <Compile Include="Entities\WebController.cs" />
