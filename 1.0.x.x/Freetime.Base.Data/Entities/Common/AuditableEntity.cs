@@ -10,11 +10,11 @@ namespace Freetime.Base.Data.Entities.Common
     {
         [DataMember]
         [XmlElement("UserCreated")]
-        public virtual int? UserCreated { get; set; }
+        public virtual Int64? UserCreated { get; set; }
 
         [DataMember]
         [XmlElement("UserModified")]
-        public virtual int? UserModified { get; set; }
+        public virtual Int64? UserModified { get; set; }
 
         [DataMember]
         [XmlElement("DateCreated")]

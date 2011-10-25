@@ -96,6 +96,8 @@
     <Compile Include="Collection\Common\DictionaryList.cs" />
     <Compile Include="Collection\ConfigurationItemCollection.cs" />
     <Compile Include="Collection\DataSessionServiceList.cs" />
+    <Compile Include="Collection\LanguageList.cs" />
+    <Compile Include="Collection\LanguageResourceCollection.cs" />
     <Compile Include="Contracts\IApplicationConfigurationSession.cs" />
     <Compile Include="Contracts\IAuthenticationSession.cs" />
     <Compile Include="Contracts\ILocalizationSession.cs" />
