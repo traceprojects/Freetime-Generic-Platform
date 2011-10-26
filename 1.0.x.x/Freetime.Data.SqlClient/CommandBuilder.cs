@@ -279,26 +279,39 @@ namespace Freetime.Data.SqlClient
         #endregion
 
         #region CreateGetChildrenCommand
-        public override ICommand CreateGetChildrenCommand<T>(TypeRelation relation, object referenceValue)
+        public override ICommand CreateGetChildrenCommand<T>(TypeRelation relation, params object[] referenceValue)
         {
             var typeT = typeof(T);
 
             var schemaTable = Provider.GetSchema(typeT);
 
+            var whereText = string.Empty;
 
-            var refKey = relation.ReferenceKey;
-            var colName = schemaTable.GetDbColumn(refKey);
+            var idx = 0;
+            foreach (var o in referenceValue)
+            {
+                var column = relation.SourceColumns[idx];
+                var colName = schemaTable.GetDbColumn(column.ColumnHolder);
 
-            string queryValue;
+                string val;
+                if (Equals(o, null))
+                    val = "NULL";
+                else if (o is DateTime)
+                    val = string.Format("'{0}'", ((DateTime)o).ToString("MM/dd/yyyy H:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture));
+                else
+                    val = (Misc.IsNumericType(o.GetType()))
+                       ? o.ToString()
+                       : string.Format("'{0}'", o);
 
-            if (referenceValue is DateTime)
-                queryValue = string.Format("'{0}'", ((DateTime)referenceValue).ToString("MM/dd/yyyy H:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture));
-            else
-                queryValue = (Misc.IsNumericType(referenceValue.GetType()))
-                    ? referenceValue.ToString()
-                    : string.Format("'{0}'", referenceValue);
+                var equation = string.Format("{0} = {1}", colName, val);
 
-            var whereText = string.Format("{0} = {1}", colName, queryValue);
+                whereText +=
+                    string.IsNullOrEmpty(whereText)
+                    ? equation
+                    : string.Format(" AND {0}", equation);
+
+                idx++;
+            }
 
             var sqlCommand = new Command();
 
