@@ -2,6 +2,8 @@
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 using Freetime.Base.Data.Entities.Common;
+using Freetime.Base.Data.Collection;
+using Anito.Data;
 
 namespace Freetime.Base.Data.Entities
 {
@@ -31,6 +33,17 @@ namespace Freetime.Base.Data.Entities
         [DataMember]
         [XmlElement("IsActive")]
         public bool IsActive { get; set; }
+
+        #region LanguageResource
+        private DataObjectSet<LanguageResourceCollection, LanguageResource> m_languageResources;
+
+        [DataMember]
+        [XmlElement("Resources")]
+        public virtual LanguageResourceCollection Resources
+        {
+            get { return m_languageResources.Details; }
+        }
+        #endregion
 
     }
 }

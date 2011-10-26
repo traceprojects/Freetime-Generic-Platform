@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Freetime.Base.Data</RootNamespace>
     <AssemblyName>Freetime.Base.Data</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -33,12 +33,13 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>tekworc.snk</AssemblyOriginatorKeyFile>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -47,7 +48,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -95,6 +96,8 @@
     <Compile Include="Collection\Common\DictionaryList.cs" />
     <Compile Include="Collection\ConfigurationItemCollection.cs" />
     <Compile Include="Collection\DataSessionServiceList.cs" />
+    <Compile Include="Collection\LanguageList.cs" />
+    <Compile Include="Collection\LanguageResourceCollection.cs" />
     <Compile Include="Contracts\IApplicationConfigurationSession.cs" />
     <Compile Include="Contracts\IAuthenticationSession.cs" />
     <Compile Include="Contracts\ILocalizationSession.cs" />
@@ -111,6 +114,7 @@
     <Compile Include="Entities\DataSessionService.cs" />
     <Compile Include="Entities\EventHandler.cs" />
     <Compile Include="Entities\Language.cs" />
+    <Compile Include="Entities\LanguageResource.cs" />
     <Compile Include="Entities\UserAccount.cs" />
     <Compile Include="Entities\UserGroup.cs" />
     <Compile Include="Entities\WebController.cs" />

@@ -36,7 +36,7 @@ namespace Freetime.Data.SqlClient
         #endregion
 
         #region MapperCache
-        private Dictionary<Type, Delegate> MapperCache
+        private static Dictionary<Type, Delegate> MapperCache
         {
             get
             {

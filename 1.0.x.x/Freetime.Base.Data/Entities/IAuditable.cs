@@ -4,9 +4,9 @@ namespace Freetime.Base.Data.Entities
 {
     public interface IAuditable
     {
-        int? UserCreated {get; set;}
+        Int64? UserCreated { get; set; }
         DateTime? DateCreated { get; set; }
-        int? UserModified { get; set; }
+        Int64? UserModified { get; set; }
         DateTime? DateModified { get; set; }
     }
 }
