@@ -124,7 +124,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Config\DataServices.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -154,6 +153,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Config\" />
     <Folder Include="Controls\" />
     <Folder Include="icons\" />
   </ItemGroup>
@@ -166,7 +166,10 @@
   </Target>
   -->
   <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
+    <PreBuildEvent>del $(ProjectDir)\Config\DataServices.config
+del $(ProjectDir)\Config\DataLayer.config
+
+xcopy $(ProjectDir)..\Freetime.Base.Data\DataLayer.config $(ProjectDir)\Config\
+xcopy $(ProjectDir)..\Freetime.Base.Data\DataServices.config $(ProjectDir)\Config\</PreBuildEvent>
   </PropertyGroup>
 </Project>

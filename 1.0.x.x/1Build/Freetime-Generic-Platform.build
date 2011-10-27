@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project name="Freetime-Generic-Platform" default="deploy.all" basedir=".">
 	<property name="hello.string" value="Hello World" />
-	<property name="nant.settings.currentframework" value="net-3.5" />
+	<property name="nant.settings.currentframework" value="net-4.0" />
 	<property name="build.configuration" value="debug" />   
 	
 	

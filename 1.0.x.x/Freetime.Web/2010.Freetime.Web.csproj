@@ -308,4 +308,10 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>del $(ProjectDir)\Config\DataLayer.config
+xcopy $(ProjectDir)..\Freetime.Base.Data\DataLayer.config $(ProjectDir)\Config\
+del $(ProjectDir)\Config\DataServices.config
+xcopy $(ProjectDir)..\Freetime.Base.Data\DataServices.config $(ProjectDir)\Config\</PreBuildEvent>
+  </PropertyGroup>
 </Project>
