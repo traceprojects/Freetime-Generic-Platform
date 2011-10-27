@@ -17,7 +17,8 @@ Contents
 
 1.0.x.x --------------------------------------------------- Branch 1.0.x.x 
 ..1Build -------------------------------------------------- Folder containing the build scripts
-..1Solution.2010 ------------------------------------------ Folder containing solution files for Visual Studio 2010
+..1Release.2010 ------------------------------------------- Folder containing solution files in Release mode for Visual Studio 2010
+..1Solution.2010 ------------------------------------------ Folder containing solution files in Debug mode for Visual Studio 2010
 ..Assemblies ---------------------------------------------- Folder containing assemblies for third party components
 ..bin ----------------------------------------------------- Projects output folder
 ....Debug ------------------------------------------------- Projects output folder for Debug Configuration
