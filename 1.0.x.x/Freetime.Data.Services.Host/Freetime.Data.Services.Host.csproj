@@ -169,7 +169,7 @@
     <PreBuildEvent>del $(ProjectDir)\Config\DataServices.config
 del $(ProjectDir)\Config\DataLayer.config
 
-xcopy $(ProjectDir)..\Freetime.Base.Data\DataLayer.config $(ProjectDir)\Config\
-xcopy $(ProjectDir)..\Freetime.Base.Data\DataServices.config $(ProjectDir)\Config\</PreBuildEvent>
+xcopy /i $(ProjectDir)..\Freetime.Base.Data\DataLayer.config $(ProjectDir)\Config\
+xcopy /i $(ProjectDir)..\Freetime.Base.Data\DataServices.config $(ProjectDir)\Config\</PreBuildEvent>
   </PropertyGroup>
 </Project>
