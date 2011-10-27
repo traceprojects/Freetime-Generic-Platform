@@ -45,7 +45,7 @@
 			<Provider Name="SqlClient" Type="Freetime.Data.SqlClient.SqlProvider, Freetime.Data.SqlClient" ConnectionString="DefaultConnection">
 				<SchemaSource>
 					<clearSource/>
-					<addSource name="DefaultSource" sourcefile="D:\TekWorc\Freetime-G-Business-Platform\1.0.x.x\Freetime.Base.Data\DataLayer.config"></addSource>
+					<addSource name="DefaultSource" sourcefile="${config.file.path}\DataLayer.config"></addSource>
 				</SchemaSource>
 			</Provider>
 		</Providers>
