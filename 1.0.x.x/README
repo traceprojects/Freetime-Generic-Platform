@@ -16,7 +16,7 @@ Contents
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
 1.0.x.x --------------------------------------------------- Branch 1.0.x.x 
-..1Solution.2008 ------------------------------------------ Folder containing solution files for Visual Studio 2008
+..1Build -------------------------------------------------- Folder containing the build scripts
 ..1Solution.2010 ------------------------------------------ Folder containing solution files for Visual Studio 2010
 ..Assemblies ---------------------------------------------- Folder containing assemblies for third party components
 ..bin ----------------------------------------------------- Projects output folder
@@ -27,7 +27,6 @@ Contents
 ......Model ----------------------------------------------- Folder containing the model database 
 ......Demo ------------------------------------------------ Folder containing the demo database
 ..Documents ----------------------------------------------- Folder containing project documents (e.g release notes, code documentation)
-....Code Documentation ------------------------------------ Folder containing the code documentation documents
 ..Freetime.Authentication --------------------------------- Project folder for Freetime.Authentication
 ..Freetime.Base.Business ---------------------------------- Project folder for Freetime.Base.Business
 ..Freetime.Base.Component --------------------------------- Project folder for Freetime.Base.Component
@@ -47,6 +46,7 @@ Contents
 ..Freetime.Web.Controller --------------------------------- Project folder for Freetime.Web.Controller
 ..Freetime.Web.Routing ------------------------------------ Project folder for Freetime.Web.Routing
 ..Freetime.Web.View --------------------------------------- Project folder for Freetime.Web.View
+..Libs ---------------------------------------------------- Contains third party library
 ..Licensing ----------------------------------------------- Folder for Licensing details
 ..Plugins ------------------------------------------------- Folder for application plugins
 ..Resharper ----------------------------------------------- Folder containing Resharper settings
@@ -60,8 +60,28 @@ Contents
 2. Building the Source
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
-The solution files under the solution folders are numbered in this format "00#.SolutionFileName.sln".
+Building the Solutions Manually
 
-e.g. : 001.Freetime.Framework
+The solution files under the solution folders are numbered in this format "00#.SolutionFileName.2010.sln".
 
-To run the source build it from the lowest number to the highest.
+e.g. : 001.Freetime.Framework.2010.sln
+
+To run the source build it from the lowest number to the highest.  You can optionally build solution 900.Freetime.Unit.Test.2010.sln, 
+this solution is only the compilation of all unit tests.  To run the application use 009.Freetime.Web.2010.sln 
+and set Freetime.Web as the start-up project.
+
+Building using the Batch Files
+
+1.0.x.x
+..Build.Debug.2010.bat -------------- Will build all solutions in Debug mode under the folder 1Solution.2010 excluding 900.Freetime.Unit.Test.2010.sln              
+..Build.Release.2010.bat ------------ Will build all solutions in Release mode under the folder 1Solution.2010 excluding 900.Freetime.Unit.Test.2010.sln              
+..Build.Unit.Test.Debug.2010.bat ---- Build 900.Freetime.Unit.Test.2010.sln in Debug mode
+..Build.Unit.Test.Release.2010.bat -- Build 900.Freetime.Unit.Test.2010.sln in Release mode
+
+(Note: The batch files will call "C:\Program Files\Microsoft Visual Studio 10.0\VC\vcvarsall.bat", if your Visual Studio 2010 is not of the same path,
+       change the path.)
+
+Building via Build Script
+
+1.0.x.x\1Build
+..Local.Build.bat ------------------- Build all the projects
