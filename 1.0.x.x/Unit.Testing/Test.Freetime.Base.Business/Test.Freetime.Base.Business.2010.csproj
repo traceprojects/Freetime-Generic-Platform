@@ -33,12 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Freetime.Authentication, Version=1.0.1.1, Culture=neutral, PublicKeyToken=b86d1ba90a0e7353, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\Debug\Freetime.Authentication.dll</HintPath>
+    <Reference Include="Freetime.Authentication">
+      <HintPath>..\..\bin\Freetime.Authentication.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Base.Data">
-      <HintPath>..\..\bin\Debug\Freetime.Base.Data.dll</HintPath>
+      <HintPath>..\..\bin\Freetime.Base.Data.dll</HintPath>
     </Reference>
     <Reference Include="Freetime.Configuration, Version=1.0.1.1, Culture=neutral, PublicKeyToken=b86d1ba90a0e7353, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
