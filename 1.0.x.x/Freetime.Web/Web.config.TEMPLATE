@@ -30,12 +30,12 @@
 	<pluginManagementConfig IsCustom="false">
 		<Attributes>
 			<clearAttributes/>
-			<addAttribute Key="WebControllersConfig" Value="D:\TekWorc\Freetime-G-Business-Platform\1.0.x.x\Freetime.Web\Config\Controllers.config"/>
-			<addAttribute Key="WebViewsConfig" Value="D:\TekWorc\Freetime-G-Business-Platform\1.0.x.x\Freetime.Web\Config\Views.config"/>
-			<addAttribute Key="WebPartialViewsConfig" Value="D:\TekWorc\Freetime-G-Business-Platform\1.0.x.x\Freetime.Web\Config\PartialViews.config"/>
-			<addAttribute Key="MasterPagesConfig" Value="D:\TekWorc\Freetime-G-Business-Platform\1.0.x.x\Freetime.Web\Config\MasterPages.config"/>
-			<addAttribute Key="BusinessLogicsConfig" Value="D:\TekWorc\Freetime-G-Business-Platform\1.0.x.x\Freetime.Web\Config\BusinessLogics.config"/>
-			<addAttribute Key="DataServiceConfig" Value="D:\TekWorc\Freetime-G-Business-Platform\1.0.x.x\Freetime.Base.Data\DataServices.config"/>
+			<addAttribute Key="WebControllersConfig" Value="${config.file.path}\Controllers.config"/>
+			<addAttribute Key="WebViewsConfig" Value="${config.file.path}\Views.config"/>
+			<addAttribute Key="WebPartialViewsConfig" Value="${config.file.path}\PartialViews.config"/>
+			<addAttribute Key="MasterPagesConfig" Value="${config.file.path}\MasterPages.config"/>
+			<addAttribute Key="BusinessLogicsConfig" Value="${config.file.path}\BusinessLogics.config"/>
+			<addAttribute Key="DataServiceConfig" Value="${config.file.path}\DataServices.config"/>
 		</Attributes>
 	</pluginManagementConfig>
 	<!--End of Plugin Management-->

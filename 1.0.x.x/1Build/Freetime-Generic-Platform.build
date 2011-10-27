@@ -1,21 +1,29 @@
 <?xml version="1.0"?>
-	<project name="Freetime-Generic-Platform" default="deploy.all" basedir="..\1Solution.2010">
+<project name="Freetime-Generic-Platform" default="deploy.all" basedir=".">
 	<property name="hello.string" value="Hello World" />
 	<property name="nant.settings.currentframework" value="net-3.5" />
 	<property name="build.configuration" value="debug" />   
+	
+	
+	<include buildfile="default.properties" />
+	<echo message="*****************************" />
+	<echo message="${config.file.path}" />
+	<echo message="*****************************" />
+	
 
 	<target name="init">
 		<echo message="init target" />
 		<foreach item="File" property="filename" >
 			<in>
 				<items>
-				<include name="00*.sln" />
+				<include name="..\1Solution.2010\00*.sln" />
 				</items>
 			</in>
 			<do>
 				<echo message="${filename}" />
 			</do>
 		</foreach>                        
+		<call target="create.config.files" />
 	</target>
 
 	<target name="clean" depends="init">
@@ -51,5 +59,35 @@
 	<target name="deploy.all" depends="integration.tests">
 		<echo message="deploy.all target" />
 	</target>           
+	
+	<target name="create.config.files">
+		<tstamp />
+		<foreach item="File" property="filename">
+		  <in>
+			<items>
+			  <include name="..\**\*.TEMPLATE" />
+			</items>
+		  </in>
+		  <do>
+			<property name="current.config.file.template" value="${filename}" />
+			<call target="convert.config.template" />
+		  </do>
+		</foreach>
+		<tstamp />
+	</target>
+
+	<target name="convert.config.template" description="Converts a config template to local version">
+		<tstamp />
+		<echo message="Converting configuration file template: ${current.config.file.template}" />
+		<copy file="${current.config.file.template}"
+		  tofile="${string::replace(current.config.file.template, '.TEMPLATE', '')}"
+		  overwrite="true">
+		  <filterchain>
+		<expandproperties />
+		  </filterchain>
+		</copy>
+		<tstamp />
+	</target>
+	
 
 </project>
