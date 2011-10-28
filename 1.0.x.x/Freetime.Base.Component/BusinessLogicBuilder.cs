@@ -1,7 +1,7 @@
 ﻿using System;
-using Freetime.Web.Controller.Implementable;
 
-namespace Freetime.Web.Controller
+
+namespace Freetime.Base.Component
 {
     public class BusinessLogicBuilder
     {
@@ -25,9 +25,9 @@ namespace Freetime.Web.Controller
             BusinessLogicFactory = factory;
         }
 
-        public static TLogic GetBusinessLogic<TLogic>(IFreetimeController controller, TLogic defaultLogic)
+        public static TLogic GetBusinessLogic<TLogic>(Type logicOwnerType, TLogic defaultLogic)
         {
-            return BusinessLogicFactory.GetBusinessLogic(controller, defaultLogic);
+            return BusinessLogicFactory.GetBusinessLogic(logicOwnerType, defaultLogic);
         }
 
         static BusinessLogicBuilder()

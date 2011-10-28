@@ -1,10 +1,10 @@
-﻿using Freetime.Web.Controller.Implementable;
+﻿using System;
 
-namespace Freetime.Web.Controller
+namespace Freetime.Base.Component
 {
     public class BusinessLogicFactory : IBusinessLogicFactory
     {
-        public TLogic GetBusinessLogic<TLogic>(IFreetimeController controller, TLogic defaultLogic)
+        public TLogic GetBusinessLogic<TLogic>(Type logicOwnerType, TLogic defaultLogic)
         {
             return defaultLogic;
         }

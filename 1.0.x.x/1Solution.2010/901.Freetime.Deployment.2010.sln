@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "001.Deployment.Database", "001.Deployment.Database", "{A14DF5E0-114C-4F93-A4CA-D3C8BB263446}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freetime.Deployment.Database", "..\Freetime.Deployment.Database\Freetime.Deployment.Database.csproj", "{5E892435-73D2-46E8-8B5F-C5ED6D27298A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "002.Deployment.Configuration", "002.Deployment.Configuration", "{82510A17-665C-490F-9EDE-D0954F45D4F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freetime.Deployment.Configuration", "..\Freetime.Deployment.Configuration\Freetime.Deployment.Configuration.csproj", "{06A357A3-5974-4F1F-9AF4-81D630D7F53D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "003.Deployment", "003.Deployment", "{80B8D85B-828C-4C56-8B07-4912350DD5B4}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Freetime.Deployment", "..\Freetime.Deployment\Freetime.Deployment.vdproj", "{967B1A6D-A1F9-420B-BD2B-044D6E7F24A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "900.Unit.Testing", "900.Unit.Testing", "{0DE8AD83-8524-45B9-AD6F-1D4A2A772669}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Deployment.Configuration", "..\Unit.Testing\Test.Freetime.Deployment.Configuration\Test.Freetime.Deployment.Configuration.csproj", "{DEA8597A-D6CE-4CCF-8D3E-2B2BE66292A7}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E892435-73D2-46E8-8B5F-C5ED6D27298A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E892435-73D2-46E8-8B5F-C5ED6D27298A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E892435-73D2-46E8-8B5F-C5ED6D27298A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E892435-73D2-46E8-8B5F-C5ED6D27298A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06A357A3-5974-4F1F-9AF4-81D630D7F53D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06A357A3-5974-4F1F-9AF4-81D630D7F53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06A357A3-5974-4F1F-9AF4-81D630D7F53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06A357A3-5974-4F1F-9AF4-81D630D7F53D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{967B1A6D-A1F9-420B-BD2B-044D6E7F24A2}.Debug|Any CPU.ActiveCfg = Debug
+		{967B1A6D-A1F9-420B-BD2B-044D6E7F24A2}.Debug|Any CPU.Build.0 = Debug
+		{967B1A6D-A1F9-420B-BD2B-044D6E7F24A2}.Release|Any CPU.ActiveCfg = Release
+		{967B1A6D-A1F9-420B-BD2B-044D6E7F24A2}.Release|Any CPU.Build.0 = Release
+		{DEA8597A-D6CE-4CCF-8D3E-2B2BE66292A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA8597A-D6CE-4CCF-8D3E-2B2BE66292A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA8597A-D6CE-4CCF-8D3E-2B2BE66292A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA8597A-D6CE-4CCF-8D3E-2B2BE66292A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5E892435-73D2-46E8-8B5F-C5ED6D27298A} = {A14DF5E0-114C-4F93-A4CA-D3C8BB263446}
+		{06A357A3-5974-4F1F-9AF4-81D630D7F53D} = {82510A17-665C-490F-9EDE-D0954F45D4F4}
+		{967B1A6D-A1F9-420B-BD2B-044D6E7F24A2} = {80B8D85B-828C-4C56-8B07-4912350DD5B4}
+		{DEA8597A-D6CE-4CCF-8D3E-2B2BE66292A7} = {0DE8AD83-8524-45B9-AD6F-1D4A2A772669}
+	EndGlobalSection
+EndGlobal

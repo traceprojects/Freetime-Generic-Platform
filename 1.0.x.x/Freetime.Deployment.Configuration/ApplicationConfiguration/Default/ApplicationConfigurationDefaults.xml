@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<ApplicationConfiguration xmlns="http://www.freetime-generic.com">
+  <!-- SYSTEM -->
+  <ConfigGroup Name="SYSTEM">
+  
+    <!-- LanguageManager -->
+    <Configuration>
+      <ConfigName>LanguageManager.CacheFactoryId</ConfigName>
+      <Description>Language Manager Defaul Cache Factory ID</Description>
+      <ConfigValue>490CA957-A6D5-43BA-87A5-CFB89AAB3586</ConfigValue>
+      <Type>String</Type>
+    </Configuration>
+  
+    <Configuration>
+      <ConfigName>LanguageManager.CacheId</ConfigName>
+      <Description>Language Manager Defaul Cache ID</Description>
+      <ConfigValue>CCFE2526-7FB5-41D1-882D-58A063D23D09</ConfigValue>
+      <Type>String</Type>
+    </Configuration>  
+    <!-- END LanguageManager -->
+  
+  </ConfigGroup>
+  <!-- END OF SYSTEM -->
+  
+</ApplicationConfiguration>

@@ -25,7 +25,8 @@ namespace Freetime.Web.View.Helpers
 
             var builder = new TagBuilder("img");
             AttributeHelper.MergeAttribute(builder, htmlAttributes);
-            var imageLocationFormat = helper.ViewContext.HttpContext.Request.Url + "/Themes/{0}/{1}/{2}";
+            var imageLocationFormat = "http://" + helper.ViewContext.HttpContext.Request.Url.Authority + "/Themes/{0}/{1}/{2}";
+            
             builder.MergeAttribute("src", string.Format(imageLocationFormat, theme, "images", imageName));
             return builder.ToString();
         }
@@ -43,7 +44,7 @@ namespace Freetime.Web.View.Helpers
                 throw new Exception("HttpContext can't be null"); 
 
             var builder = new TagBuilder("img");
-            var imageLocationFormat = helper.ViewContext.HttpContext.Request.Url + "/Themes/{0}/{1}/{2}";
+            var imageLocationFormat = "http://" + helper.ViewContext.HttpContext.Request.Url.Authority + "/Themes/{0}/{1}/{2}";
             builder.MergeAttribute("src", string.Format(imageLocationFormat, theme, "images", imageName));
             return builder.ToString();
         }
