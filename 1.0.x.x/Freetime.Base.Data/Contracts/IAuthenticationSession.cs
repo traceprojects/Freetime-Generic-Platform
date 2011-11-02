@@ -6,7 +6,7 @@ namespace Freetime.Base.Data.Contracts
     [ServiceContract]
     public interface IAuthenticationSession : IDataSession
     {
-        [OperationContract]
+        [OperationContract(Name = "GetUserAccount")]
         UserAccount GetUserAccount(string username);
     }
 }

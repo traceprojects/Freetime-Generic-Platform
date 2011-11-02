@@ -52,10 +52,10 @@
 	</AnitoProviderConfiguration>
 	<!--End of Anito Config-->
 	<!-- DataSessionBuilder -->
-	<dataSessionBuilderConfig CustomProvider="false" FactoryType="Freetime.Data.Services.Client.WSDataSessionFactory, Freetime.Data.Services.Client">
+	<dataSessionBuilderConfig CustomProvider="false" FactoryType="Freetime.Data.Services.Client.HttpSessionFactory, Freetime.Data.Services.Client">
 		<Attributes>
 			<clearAttributes/>
-			<addAttribute Key="HostAddress" Value="https://localhost:8000/FreetimeDataServices"/>
+			<addAttribute Key="HostAddress" Value="http://localhost:8000/FreetimeDataServices"/>
 			<addAttribute Key="UserName" Value="tekworcs"/>
 			<addAttribute Key="Password" Value="password"/>
 		</Attributes>

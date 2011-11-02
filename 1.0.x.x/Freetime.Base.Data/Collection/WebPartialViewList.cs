@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 namespace Freetime.Base.Data.Collection
 {
     [Serializable]
-    [DataContract]
+    [CollectionDataContract]
     [XmlRoot("PartialViews",
         Namespace = "http://www.freetime-generic.com",
         IsNullable = true)]
