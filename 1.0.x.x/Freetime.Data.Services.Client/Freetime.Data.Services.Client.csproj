@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HttpSessionFactory.cs" />
     <Compile Include="TestTools\PermissiveCertificatePolicy.cs" />
     <Compile Include="WSDataSessionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

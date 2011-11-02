@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
 using System.IO;
-
+using Freetime.Configuration;
 namespace Freetime.Base.Component.Diagnostics
 {
     public class LogWriterTraceListener : TextWriterTraceListener
     {
         private static StreamWriter GetWriter()
         {
-            string logfileLocation = Freetime.Configuration.ConfigurationManager.FreetimeConfiguration.LogFilesLocation;
+            var logfileLocation = ConfigurationManager.FreetimeConfiguration.LogFilesLocation;
 
             logfileLocation = string.Format("{0}/{1}", logfileLocation, DateTime.Now.ToString("yyyy/MM/dd"));
 
             if (!Directory.Exists(logfileLocation))
                 Directory.CreateDirectory(logfileLocation);
 
-            string logfile = string.Format("{0}/trace.log", logfileLocation);
+            var logfile = string.Format("{0}/trace.log", logfileLocation);
 
-            StreamWriter writer = new StreamWriter(logfile, true);
+            var writer = new StreamWriter(logfile, true);
 
             return writer;
         }
@@ -43,12 +40,7 @@ namespace Freetime.Base.Component.Diagnostics
         {
             Write(DateTime.Now, message, category, newLine);
         }
-
-        public override void Close()
-        {
-            base.Close();
-        }
-
+        
         public override void Write(object o)
         {
             Write(o.ToString(), "Information", false);

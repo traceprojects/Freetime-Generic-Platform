@@ -8,25 +8,25 @@ namespace Freetime.Base.Data.Contracts
     [ServiceContract]
     public interface ILocalizationSession : IDataSession
     {
-        [OperationContract]
+        [OperationContract(Name = "GetLanguageByLanguageCode")]
         Language GetLanguage(string languageCode);
 
-        [OperationContract]
+        [OperationContract(Name = "GetLanguageById")]
         Language GetLanguage(Int64 languageId);
 
-        [OperationContract]
+        [OperationContract(Name = "GetAllLanguage")]
         LanguageList GetAllLanguage();
-        
-        [OperationContract]
+
+        [OperationContract(Name = "SaveLanguage")]
         void SaveLanguage(Language language);
 
-        [OperationContract]
+        [OperationContract(Name = "DeleteLanguage")]
         void DeleteLanguage(Language language);
 
-        [OperationContract]
+        [OperationContract(Name = "DeleteLanguageByLanguageCode")]
         void DeleteLanguage(string languageCode);
 
-        [OperationContract]
+        [OperationContract(Name = "DeleteLanguageById")]
         void DeleteLanguage(Int64 languageId);
     }
 }

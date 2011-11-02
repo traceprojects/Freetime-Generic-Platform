@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<Language xmlns="http://www.freetime-generic.com"
+          LanguageCode="English - United States"
+          DisplayName="English - United States"
+          Active="true">
+  
+  <Resource>
+    <Key>Language.Caption</Key>
+    <Value>Language</Value>
+  </Resource>
+  
+  
+</Language>
