@@ -6,12 +6,12 @@
     <section name="AnitoProviderConfiguration" type="Anito.Data.Configuration.ProviderConfiguration, Anito.Data" allowDefinition="Everywhere" requirePermission="false"/>
   </configSections>
 
-  <Freetime.Configuration PluginManagementConfigurationSection="pluginManagementConfig" LogFilesLocation="D:\TekWorc\logs"/>
+  <Freetime.Configuration PluginManagementConfigurationSection="pluginManagementConfig" LogFilesLocation="${log.files.location}"/>
   
   <pluginManagementConfig IsCustom="false">
     <Attributes>
       <clearAttributes/>      
-      <addAttribute Key="DataServiceConfig" Value="D:\TekWorc\Freetime-G-Business-Platform\1.0.x.x\Freetime.Base.Data\DataServices.config"/>
+      <addAttribute Key="DataServiceConfig" Value="${root.dir}\Freetime.Base.Data\DataServices.config"/>
     </Attributes>
   </pluginManagementConfig>
 
@@ -21,7 +21,7 @@
       <Provider Name="SqlClient" Type="Freetime.Data.SqlClient.SqlProvider, Freetime.Data.SqlClient" ConnectionString="DefaultConnection">
         <SchemaSource>
           <clearSource/>
-          <addSource name="DefaultSource" sourcefile="D:\TekWorc\Freetime-G-Business-Platform\1.0.x.x\Freetime.Base.Data\DataLayer.config"></addSource>
+          <addSource name="DefaultSource" sourcefile="${root.dir}\Freetime.Base.Data\DataLayer.config"></addSource>
         </SchemaSource>
       </Provider>
     </Providers>
