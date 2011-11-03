@@ -17,7 +17,7 @@
         assembly="Project.Anito.Website.EventHandler" 
         handler="Project.Anito.Website.EventHandler.FreetimeEventHandler" 
         isactive="false" 
-        assemblylocation="D:\TekWorc\Freetime-G-Business-Platform\1.0.1.x\Freetime.Web\bin"
+        assemblylocation="${root.dir}\Freetime.Web\bin"
       />-->
     </Handlers>
   </globalEventConfig>

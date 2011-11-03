@@ -11,7 +11,7 @@
 	<echo message="*****************************" />
 	
 
-	<target name="init">
+	<target name="init" failonerror="true">
 		<echo message="init target" />
 		<foreach item="File" property="filename" >
 			<in>
@@ -26,41 +26,53 @@
 		<call target="create.config.files" />
 	</target>
 
-	<target name="clean" depends="init">
-	<echo message="clean target" />
+	<target name="clean" depends="init" failonerror="false">
+		<echo message="clean target" />	
 	</target>
 
-	<target name="deploy.database" depends="clean">
-	<echo message="deploy.database target" />
+	<target name="deploy.database" depends="clean" failonerror="true">
+		<echo message="deploy.database target" />
 	</target>
 
-	<target name="build" depends="deploy.database" description="Echoes 'Hello World'">
-
+	<target name="build" depends="deploy.database" failonerror="true">
+		<tstamp />
+		<echo message="building projects" />
+		<echo message="rootdir=${root.dir}" />
 		<foreach item="File" property="filename">
 			<in>
 				<items>
-					<include name="00*.sln" />
+				<include name="..\1Solution.2010\00*.sln" />
 				</items>
 			</in>
 			<do>
 				<echo message="compiling file .. ${filename}" />
-				<exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe" commandline="${filename} /t:Clean /p:Configuration=${build.configuration} /v:q" workingdir="." />    
+				<exec program="${MSBuildPath}">
+					<arg line='"${filename}"' />
+					<arg line="/property:Configuration=${SolutionConfiguration}" />
+					<arg value="/target:Rebuild" />
+					<arg value="/verbosity:normal" />
+					<arg value="/nologo" />
+				</exec>
 			</do>
 		</foreach>                        
 	</target>
 
-	<target name="unit.tests" depends="build">
+	<target name="unit.tests" depends="build" failonerror="true">
+		<tstamp />
+		<echo message="run unit tests" />
 	</target>
 
-	<target name="integration.tests" depends="unit.tests">
+	<target name="integration.tests" depends="unit.tests" failonerror="true">
+		<tstamp />
+		<echo message="run integration tests" />
 	</target>
 
 
-	<target name="deploy.all" depends="integration.tests">
+	<target name="deploy.all" depends="integration.tests" failonerror="true">
 		<echo message="deploy.all target" />
 	</target>           
 	
-	<target name="create.config.files">
+	<target name="create.config.files" failonerror="true">
 		<tstamp />
 		<foreach item="File" property="filename">
 		  <in>
@@ -73,21 +85,17 @@
 			<call target="convert.config.template" />
 		  </do>
 		</foreach>
-		<tstamp />
 	</target>
 
-	<target name="convert.config.template" description="Converts a config template to local version">
-		<tstamp />
+	<target name="convert.config.template" description="Converts a config template to local version" failonerror="true">
 		<echo message="Converting configuration file template: ${current.config.file.template}" />
 		<copy file="${current.config.file.template}"
 		  tofile="${string::replace(current.config.file.template, '.TEMPLATE', '')}"
 		  overwrite="true">
-		  <filterchain>
-		<expandproperties />
-		  </filterchain>
+			<filterchain>
+				<expandproperties />
+			</filterchain>
 		</copy>
-		<tstamp />
 	</target>
-	
 
 </project>

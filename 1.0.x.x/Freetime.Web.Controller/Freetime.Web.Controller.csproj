@@ -107,10 +107,7 @@
   <ItemGroup>
     <Compile Include="AccountController.cs" />
     <Compile Include="BaseController.cs" />
-    <Compile Include="BusinessLogicBuilder.cs" />
-    <Compile Include="BusinessLogicFactory.cs" />
     <Compile Include="ControllerFactory.cs" />
-    <Compile Include="IBusinessLogicFactory.cs" />
     <Compile Include="Implementable\IFreetimeController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootController.cs" />

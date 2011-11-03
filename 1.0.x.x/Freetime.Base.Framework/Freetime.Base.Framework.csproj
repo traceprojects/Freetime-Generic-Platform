@@ -83,8 +83,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activator.cs" />
+    <Compile Include="Caching\Cache.cs" />
+    <Compile Include="Caching\CacheFactory.cs" />
+    <Compile Include="Caching\ICache.cs" />
+    <Compile Include="Caching\ICacheFactory.cs" />
+    <Compile Include="Caching\MachineMemoryCache.cs" />
+    <Compile Include="Caching\MachineMemoryCacheFactory.cs" />
     <Compile Include="Crypto.cs" />
     <Compile Include="Diagnostics\DebugUtil.cs" />
+    <Compile Include="Diagnostics\EventLog.cs" />
+    <Compile Include="Diagnostics\LogUtil.cs" />
     <Compile Include="Diagnostics\TraceUtil.cs" />
     <Compile Include="INameable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

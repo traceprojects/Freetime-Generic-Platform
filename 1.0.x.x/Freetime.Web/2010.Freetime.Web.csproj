@@ -60,6 +60,9 @@
     <Reference Include="Freetime.Configuration">
       <HintPath>..\bin\Freetime.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="Freetime.Data.Services.Client">
+      <HintPath>..\bin\Freetime.Data.Services.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Freetime.Data.SqlClient">
       <HintPath>..\bin\Freetime.Data.SqlClient.dll</HintPath>
     </Reference>

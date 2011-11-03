@@ -5,6 +5,7 @@ using Freetime.GlobalHandling;
 using Freetime.Base.Business.Implementable;
 using Freetime.Web.Context;
 using Freetime.Web.Controller.Implementable;
+using Freetime.Base.Component;
 
 namespace Freetime.Web.Controller
 {    
@@ -14,7 +15,7 @@ namespace Freetime.Web.Controller
 
         protected virtual TLogic CurrentLogic
         {
-            get { return BusinessLogicBuilder.GetBusinessLogic(this, DefaultLogic); }
+            get { return BusinessLogicBuilder.GetBusinessLogic(GetType(), DefaultLogic); }
         }
 
         public virtual FreetimeUser CurrentUser

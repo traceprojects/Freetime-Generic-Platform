@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<User>
+  
+  <UserAccount>
+    <LoginName>admin</LoginName>
+    <Password>X03MO1qnZdYdgyfeuILPmQ==</Password>
+    <Name>Freetime-Generic Administrator</Name>
+    <UserProfile>1</UserProfile>
+    <WebTheme>1</WebTheme>
+    <Theme>1</Theme>
+    <Active>true</Active>
+  </UserAccount>
+
+  <UserProfile>
+    <Name>Freetime-Generic Administrator</Name>
+    
+  </UserProfile> 
+  
+</User>

@@ -51,10 +51,10 @@ namespace Freetime.Data.Services.Host
 
             BasicHttpEndpoint = new BasicHttpEndpointHandle { Address = "http://localhost:8000/FreetimeDataServices" };
             
-            var wsHandle = new WSHttpEndpointHandle { Address = "https://localhost:8000/FreetimeDataServices" };
+            //var wsHandle = new WSHttpEndpointHandle { Address = "https://localhost:8000/FreetimeDataServices" };
             //Service.AddEndpointHandle(BasicHttpEndpoint);
 
-            Service.AddEndpointHandle(wsHandle);
+            Service.AddEndpointHandle(BasicHttpEndpoint);
             Service.Load();
             
             gridSessions.DataSource = Service.ServiceHosts.ToList();
