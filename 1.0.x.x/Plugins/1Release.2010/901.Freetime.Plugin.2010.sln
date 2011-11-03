@@ -1,13 +1,13 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freetime.Plugin.EventHandling", "..\Freetime.Plugin.EventHandling\Freetime.Plugin.EventHandling.csproj", "{01D03BE6-7CA2-4E58-B5B2-3971034DF8F6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freetime.Web.SessionManagement.MongoDB", "..\Freetime.Web.SessionManagement.MongoDB\Freetime.Web.SessionManagement.MongoDB.csproj", "{00DA01F5-5E8A-41A5-9095-75875B248BCE}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "001.EventHandling", "001.EventHandling", "{FD3EEFD6-3A7F-4F7C-9928-007E881220C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MongoDB.Session.Store", "MongoDB.Session.Store", "{CF6A41C7-B263-4C11-B816-62E30C867592}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freetime.Plugin.EventHandling", "..\Freetime.Plugin.EventHandling\Freetime.Plugin.EventHandling.csproj", "{01D03BE6-7CA2-4E58-B5B2-3971034DF8F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Freetime.Web.SessionManagement.MongoDB", "..\Freetime.Web.SessionManagement.MongoDB\Freetime.Web.SessionManagement.MongoDB.csproj", "{00DA01F5-5E8A-41A5-9095-75875B248BCE}"
 EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
