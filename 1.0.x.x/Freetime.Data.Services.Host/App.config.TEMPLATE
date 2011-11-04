@@ -29,7 +29,7 @@
   <!--End of Anito Config-->
 
   <connectionStrings>
-    <add name="DefaultConnection" connectionString="Data Source=.\ALPHA;Initial Catalog=G.Demo;Integrated Security=True" providerName="Anito.Data.SqlClient"/>
+    <add name="DefaultConnection" connectionString="Data Source=${database.server};Initial Catalog=${database.name};Integrated Security=True" providerName="Anito.Data.SqlClient"/>
   </connectionStrings>
 
 
