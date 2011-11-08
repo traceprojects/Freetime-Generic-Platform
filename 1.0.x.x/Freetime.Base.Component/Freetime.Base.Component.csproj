@@ -52,6 +52,7 @@
     <Compile Include="BusinessLogicBuilder.cs" />
     <Compile Include="BusinessLogicFactory.cs" />
     <Compile Include="Diagnostics\LogWriterTraceListener.cs" />
+    <Compile Include="IBusinessLogicBuilder.cs" />
     <Compile Include="IBusinessLogicFactory.cs" />
     <Compile Include="ILanguageManager.cs" />
     <Compile Include="LanguageManager.cs" />

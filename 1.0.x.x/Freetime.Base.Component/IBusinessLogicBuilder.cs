@@ -2,12 +2,10 @@
 
 namespace Freetime.Base.Component
 {
-    public interface IBusinessLogicFactory
+    public interface IBusinessLogicBuilder
     {
         TLogic GetBusinessLogic<TLogic>(Type logicOwnerType, TLogic defaultLogic);
 
         TLogic CreateBusinessLogic<TLogic>();
-
-        void AddAttribute(string key, string value);
     }
 }

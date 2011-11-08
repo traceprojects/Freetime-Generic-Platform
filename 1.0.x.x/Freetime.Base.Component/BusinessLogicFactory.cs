@@ -2,19 +2,19 @@
 
 namespace Freetime.Base.Component
 {
-    public class BusinessLogicFactory : IBusinessLogicFactory
+    internal class BusinessLogicFactory : IBusinessLogicFactory
     {
         public TLogic GetBusinessLogic<TLogic>(Type logicOwnerType, TLogic defaultLogic)
         {
             return defaultLogic;
         }
 
-        public void AddAttribute(string key, string value)
+        public TLogic CreateBusinessLogic<TLogic>()
         {
-            
+            return default(TLogic);
         }
 
-        internal BusinessLogicFactory()
+        public void AddAttribute(string key, string value)
         {
             
         }
