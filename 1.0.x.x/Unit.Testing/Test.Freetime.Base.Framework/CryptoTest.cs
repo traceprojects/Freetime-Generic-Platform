@@ -1,5 +1,5 @@
 ﻿using Freetime.Base.Framework;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Test.Freetime.Base.Framework
 {
@@ -8,14 +8,14 @@ namespace Test.Freetime.Base.Framework
     /// </summary>
     /// <Assembly>Freetime.Base.Framework</Assembly>
     /// <Class>Freetime.Base.Framework.Crypto</Class>
-    [TestClass]
+    [TestFixture]
     public class CryptoTest
     {
 
         /// <summary>
         /// Expected : Crypto should not be null
         /// </summary>
-        [TestMethod]
+        [Test]
         public void CryptoNullTest()
         {
             var provider = Crypto.Md5CryptoServiceProvider;
