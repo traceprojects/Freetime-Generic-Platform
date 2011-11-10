@@ -1,5 +1,5 @@
 ﻿using Freetime.Authentication;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Test.Freetime.Authentication
 {
@@ -8,14 +8,14 @@ namespace Test.Freetime.Authentication
     /// </summary>
     /// <Assembly>Freetime.Base.Framework</Assembly>
     /// <Class>Freetime.Base.Framework.Crypto</Class>
-    [TestClass]
+    [TestFixture]
     public class FreetimeUserTest
     {
 
         /// <summary>
         /// Expected : Initialized FreetimeUser
         /// </summary>
-        [TestMethod]
+        [Test]
         public void InitiateFreetimeUserTest()
         {
             var user = new FreetimeUser(1, 1, "Test User", true, "DefaultTheme");

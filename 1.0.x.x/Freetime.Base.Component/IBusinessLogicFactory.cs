@@ -6,6 +6,8 @@ namespace Freetime.Base.Component
     {
         TLogic GetBusinessLogic<TLogic>(Type logicOwnerType, TLogic defaultLogic);
 
+        TLogic CreateBusinessLogic<TLogic>();
+
         void AddAttribute(string key, string value);
     }
 }

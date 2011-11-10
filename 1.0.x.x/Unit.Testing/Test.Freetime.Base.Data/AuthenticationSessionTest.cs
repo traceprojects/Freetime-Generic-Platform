@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using Moq;
 using Moq.Protected;
 using Freetime.Base.Data;
@@ -14,14 +14,14 @@ namespace Test.Freetime.Base.Data
     /// </summary>
     /// <Assembly>Freetime.Base.Data</Assembly>
     /// <Class>Freetime.Base.Data.AuthenticationSession</Class>
-    [TestClass]
+    [TestFixture]
     public class AuthenticationSessionTest
     {
 
         /// <summary>
         /// Expected : UserAccount Entity
         /// </summary>
-        [TestMethod]
+        [Test]
         public void GetUserAccount()
         {
             var userAccount = new UserAccount { 
@@ -49,7 +49,7 @@ namespace Test.Freetime.Base.Data
         /// <summary>
         /// Expected : ArgumentNullException
         /// </summary>
-        [TestMethod]
+        [Test]
         public void GetUserAccountThrowsArgumentNullException()
         {
             var target = new AuthenticationSession();

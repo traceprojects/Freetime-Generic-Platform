@@ -3,12 +3,12 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Moq.Protected;
 using Freetime.Base.Data;
 using Freetime.Base.Data.Entities;
 using Anito.Data;
+using NUnit.Framework;
 
 namespace Test.Freetime.Base.Data
 {
@@ -17,22 +17,22 @@ namespace Test.Freetime.Base.Data
     /// </summary>
     /// <Assembly>Freetime.Base.Data</Assembly>
     /// <Class>Freetime.Base.Data.LocalizationSession</Class>
-    [TestClass]
+    [TestFixture]
     public class LocalizationSessionTest
     {        
         /// <summary>
         /// Expected : Language Entity
         /// </summary>
-        [TestMethod]
+        [Test]
         public void GetLanguage()
         {
-            Mock<LocalizationSession> localizationSession = new Mock<LocalizationSession> { CallBase = true };
+            var localizationSession = new Mock<LocalizationSession> { CallBase = true };
 
-            Mock<ISession> anitoSession = new Mock<ISession> { CallBase= true };
+            var anitoSession = new Mock<ISession> { CallBase= true };
             
-            string languageCode = "English - United States";
+            const string languageCode = "English - United States";
 
-            Language language = new Language
+            var language = new Language
             {
                 LanguageCode = languageCode,
                 DisplayName = languageCode,
@@ -51,10 +51,10 @@ namespace Test.Freetime.Base.Data
         /// <summary>
         /// Expected : ArgumentNullException
         /// </summary>
-        [TestMethod]
+        [Test]
         public void GetLanguageThrowsArgumentNullException()
         {
-            LocalizationSession target = new LocalizationSession();
+            var target = new LocalizationSession();
 
             Exception exception = null;
 
@@ -68,10 +68,8 @@ namespace Test.Freetime.Base.Data
             }
 
             Assert.IsNotNull(exception);
-
-            Assert.AreEqual<Type>(
+            Assert.AreEqual(
                typeof(ArgumentNullException), exception.GetType());
-
         }
 
     }
