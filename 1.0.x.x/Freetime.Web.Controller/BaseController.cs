@@ -9,13 +9,19 @@ using Freetime.Base.Component;
 
 namespace Freetime.Web.Controller
 {    
-    public abstract class BaseController<TLogic> : System.Web.Mvc.Controller, IFreetimeController where TLogic : ILogic
+    public abstract class BaseController<TLogic> : System.Web.Mvc.Controller, IFreetimeController 
+        where TLogic : ILogic
     {
         protected abstract TLogic DefaultLogic { get; }
 
         protected virtual TLogic CurrentLogic
         {
-            get { return BusinessLogicBuilder.GetBusinessLogic(GetType(), DefaultLogic); }
+            get { return LogicBuilder.GetBusinessLogic(GetType(), DefaultLogic); }
+        }
+
+        protected virtual IBusinessLogicBuilder LogicBuilder
+        {
+            get { return BusinessLogicBuilder.Current; }
         }
 
         public virtual FreetimeUser CurrentUser

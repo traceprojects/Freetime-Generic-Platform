@@ -6,6 +6,8 @@
 	
 	
 	<include buildfile="default.properties" />
+	<include buildfile="my.default.properties" failonerror="false" />
+	
 	<echo message="*****************************" />
 	<echo message="${config.file.path}" />
 	<echo message="*****************************" />

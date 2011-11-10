@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Reflection.Emit;
 
 namespace Freetime.Base.Framework
@@ -46,9 +44,6 @@ namespace Freetime.Base.Framework
                 il.Emit(OpCodes.Ret);
 
                 var delgt = dm.CreateDelegate(typeof(CreateTypeDelegate));
-
-                if (Equals(delgt, null))
-                    throw new Exception(string.Format("Unable to create instance of type {0}", type.FullName));
 
                 CreateTypeDelegateCache.Add(type, delgt);
             }

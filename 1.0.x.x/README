@@ -84,3 +84,5 @@ Building via Build Script
 
 1.0.x.x\1Build
 ..Local.Build.bat ------------------- Build all the projects
+(Note:  If you want to override any of the values in default.properties, just create a new properties file named "my.default.properties" in the same directory and the build will override the values.  DO NOT check-in the my.default.properties file.
+
