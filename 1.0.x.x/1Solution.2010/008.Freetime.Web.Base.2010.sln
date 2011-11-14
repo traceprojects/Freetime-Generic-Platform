@@ -31,12 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Web.View.2010
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Web.Authorization.2010", "..\Unit.Testing\Test.Freetime.Web.Authorization\Test.Freetime.Web.Authorization.2010.csproj", "{3D0C32BC-CEF3-43BB-B101-F7CCC24D3AB7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8929F575-F13C-46AA-9EFA-7B5E9355F664}"
-	ProjectSection(SolutionItems) = preProject
-		Local.testsettings = Local.testsettings
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Freetime.Web.Controller.2010", "..\Unit.Testing\Test.Freetime.Web.Controller\Test.Freetime.Web.Controller.2010.csproj", "{B602EF23-C776-4452-86AE-8573EE897C89}"
 EndProject
 Global
@@ -102,7 +96,6 @@ Global
 		{46682108-1E79-49C4-93FE-2CDA26D8D7CB} = {1C0CDA05-34F3-4147-8444-85AB85C6A15B}
 		{D576CDDF-33C5-4746-89C0-6A21D92BE329} = {1C0CDA05-34F3-4147-8444-85AB85C6A15B}
 		{3D0C32BC-CEF3-43BB-B101-F7CCC24D3AB7} = {1C0CDA05-34F3-4147-8444-85AB85C6A15B}
-		{8929F575-F13C-46AA-9EFA-7B5E9355F664} = {1C0CDA05-34F3-4147-8444-85AB85C6A15B}
 		{B602EF23-C776-4452-86AE-8573EE897C89} = {1C0CDA05-34F3-4147-8444-85AB85C6A15B}
 		{DB21F724-2C1C-4615-920B-9DB51670B345} = {63DB2D6E-9743-4265-8BFA-C1F75D143F87}
 	EndGlobalSection

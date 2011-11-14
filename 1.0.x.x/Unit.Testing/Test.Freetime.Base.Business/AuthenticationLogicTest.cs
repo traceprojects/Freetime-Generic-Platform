@@ -1,11 +1,11 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Moq.Protected;
 using Freetime.Base.Data.Entities;
 using Freetime.Base.Data.Contracts;
 using Freetime.Base.Business;
 using Freetime.Authentication;
+using NUnit.Framework;
 
 namespace Test.Freetime.Base.Business
 {
@@ -14,12 +14,12 @@ namespace Test.Freetime.Base.Business
     /// </summary>
     /// <Assembly>Freetime.Base.Business</Assembly>
     /// <Class>Freetime.Base.Business.AuthenticationLogic</Class>
-    [TestClass]
+    [TestFixture]
     public class AuthenticationLogicTest
     {
        
 
-        [TestMethod]
+        [Test]
         public void TestSignInUserByUserPassword()
         {
             var logic = GetLogic();
@@ -28,7 +28,7 @@ namespace Test.Freetime.Base.Business
             Assert.IsTrue(actual);
         }
 
-        [TestMethod]
+        [Test]
         public void TestSignInUserByUserPasswordIp()
         {
             var logic = GetLogic();
@@ -37,7 +37,7 @@ namespace Test.Freetime.Base.Business
             Assert.IsTrue(actual);
         }
 
-        [TestMethod]
+        [Test]
         public void TestSignInUserByUserPasswordRefUser()
         {
             var logic = GetLogic();
@@ -48,7 +48,7 @@ namespace Test.Freetime.Base.Business
             Assert.IsNotNull(user);
         }
 
-        [TestMethod]
+        [Test]
         public void TestSignInUserByUserPasswordIpRefUser()
         {
             var logic = GetLogic();
@@ -59,7 +59,7 @@ namespace Test.Freetime.Base.Business
             Assert.IsNotNull(user);
         }
 
-        [TestMethod]
+        [Test]
         public void TestSignInUserUserNullUserNameThrowsArgumentNullException()
         {
             var logic = new AuthenticationLogic();
@@ -80,7 +80,7 @@ namespace Test.Freetime.Base.Business
                typeof(ArgumentNullException), exception.GetType());
         }
 
-        [TestMethod]
+        [Test]
         public void TestSignInUserUserNullPasswordThrowsArgumentNullException()
         {
             var logic = new AuthenticationLogic();

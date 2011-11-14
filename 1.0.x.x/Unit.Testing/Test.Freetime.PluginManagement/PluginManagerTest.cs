@@ -1,6 +1,6 @@
 ﻿using Moq;
 using Freetime.PluginManagement;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Test.Freetime.PluginManagement
 {
@@ -9,13 +9,13 @@ namespace Test.Freetime.PluginManagement
     /// </summary>
     /// <Assembly>Freetime.PluginManagement.</Assembly>
     /// <Class>Freetime.PluginManagement.PluginManager</Class>
-    [TestClass]
+    [TestFixture]
     public class PluginManagerTest
     {
         /// <summary>
         /// Expected : PluginManager Not Null
         /// </summary>
-        [TestMethod]
+        [Test]
         public void PluginManagerNotNullTest()
         {
             var pluginManager = new Mock<IPluginManager>();
