@@ -1,6 +1,6 @@
 ﻿using System;
 using Freetime.GlobalHandling;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace Test.Freetime.GlobalHandling
 {
@@ -9,7 +9,7 @@ namespace Test.Freetime.GlobalHandling
     /// </summary>
     /// <Assembly>Freetime.GlobalHandling</Assembly>
     /// <Class>Freetime.GlobalHandling.GlobalEventDispatcher</Class>
-    [TestClass]
+    [TestFixture]
     public class GlobalEventDispatcherTest
     {
         private const string EVENT_NAME = "TestEvent";
@@ -17,14 +17,14 @@ namespace Test.Freetime.GlobalHandling
         /// <summary>
         /// Expected : Added Event exists
         /// </summary>
-        [TestMethod]
+        [Test]
         public void AddEventHandlerTest()
         {
             GlobalEventDispatcher.AddEventHandler(EVENT_NAME, TestEvent);
             Assert.IsTrue(GlobalEventDispatcher.HasEvent(EVENT_NAME));
         }
 
-        [TestMethod]
+        [Test]
         public void RaiseEventTest()
         {
             if(GlobalEventDispatcher.HasEvent(EVENT_NAME))
