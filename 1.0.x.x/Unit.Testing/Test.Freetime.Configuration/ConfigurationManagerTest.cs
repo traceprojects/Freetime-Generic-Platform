@@ -1,6 +1,6 @@
 ﻿using Freetime.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using NUnit.Framework;
 
 namespace Test.Freetime.Configuration
 {
@@ -9,14 +9,14 @@ namespace Test.Freetime.Configuration
     /// </summary>
     /// <Assembly>Freetime.Configuration</Assembly>
     /// <Class>Freetime.Configuration.ConfigurationManager</Class>
-    [TestClass]
+    [TestFixture]
     public class ConfigurationManagerTest
     {
 
         /// <summary>
         /// Expected : ConfigurationManager.FreetimeConfiguration not null
         /// </summary>
-        [TestMethod]
+        [Test]
         public void FreetimeConfigNotNullTest()
         {
             var freetimeConfig = new Mock<FreetimeConfiguration>();

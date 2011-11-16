@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
+using NUnit.Framework;
 using ApplicationConfiguration = Freetime.Deployment.Configuration.ApplicationConfiguration.ApplicationConfiguration;
 
 namespace Test.Freetime.Deployment.Configuration
 {
-    [TestClass]
+    [TestFixture]
     public class ApplicationConfigurationTest
     {
-        [TestMethod]
+        [Test]
         public void LoadApplicationConfigurationDefaultsValuesTest()
         {
             var serializer = new XmlSerializer(typeof(ApplicationConfiguration));

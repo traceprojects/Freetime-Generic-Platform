@@ -1,15 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace Test.Freetime.DataServices.Host
 {
     /// <summary>
     /// Summary description for UnitTest1
     /// </summary>
-    [TestClass]
+    [TestFixture]
     public class HostAppTest
     {
 
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
             //
